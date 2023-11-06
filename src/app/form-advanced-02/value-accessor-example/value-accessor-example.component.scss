@@ -1,0 +1,23 @@
+:host {
+    display: block;
+  }
+  .form {
+    background-color: #fafafa;
+    padding: 1rem;
+    border: #ccc solid 1px;
+    border-radius: 5px;
+  }
+  .form-field {
+    margin-right: 1rem;
+  }
+  
+  .content {
+    background-color: #fff;
+    padding: 2rem;
+    height: calc(100vh - 64px);
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+  }
+  

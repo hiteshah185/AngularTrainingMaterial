@@ -1,0 +1,30 @@
+<div *ngIf="jsonData">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let control of jsonData?.controls">
+        <label >{{control.label}}</label>
+        <input
+        *ngIf="[
+        'text',
+        'password',
+        'email',
+        'number',
+        'search',
+        'tel',
+        'url'].includes(control.type)"
+         [type]="control.type"
+        [formControlName]="control.name"
+        [value]="control.value"/>
+        <textarea 
+        *ngIf="control.type === 'textarea'"
+        [formControlName]="control.name"
+        [value]="control.value"
+         id="" cols="30" rows="10">
+        </textarea>
+        
+    </div>
+    <button type="submit">Submit</button>
+</form>
+</div>
+<div *ngIf="!jsonData">
+<h1>Loading....</h1>
+</div>

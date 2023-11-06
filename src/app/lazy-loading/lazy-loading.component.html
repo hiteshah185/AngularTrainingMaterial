@@ -1,0 +1,4 @@
+<div *ngFor ="let user of userList$ | async">
+ <b>First Name:</b>   <p>{{user?.firstName}}</p>
+ <b>Email:</b>          <p>{{user?.email}}</p>
+</div>

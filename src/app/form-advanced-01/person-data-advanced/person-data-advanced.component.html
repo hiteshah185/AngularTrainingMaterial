@@ -1,0 +1,13 @@
+<fieldset class="field" *ngIf="formGroup" [formGroup]="formGroup">
+    <legend class="field_title">{{title}}</legend>
+    <section class="insured">
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="names"/>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName"/>
+        </mat-form-field>
+    </section>
+</fieldset>

@@ -1,0 +1,55 @@
+{
+    "controls": [
+      {
+        "name": "firstName",
+        "label": "First name:",
+        "value": "",
+        "type": "text",
+        "validators": {
+          "required": true,
+          "minLength": 10
+        }
+      },
+      {
+        "name": "lastName",
+        "label": "Last name:",
+        "value": "",
+        "type": "text",
+        "validators": {}
+      },
+      {
+        "name": "comments",
+        "label": "Comments",
+        "value": "",
+        "type": "textarea",
+        "validators": {}
+      },
+      {
+        "name": "agreeTerms",
+        "label": "This is a checkbox?",
+        "value": "true",
+        "type": "checkbox",
+        "validators": {}
+      },
+      {
+        "name": "size",
+        "label": "",
+        "value": "10",
+        "type": "range",
+        "options": {
+          "min": "0",
+          "max": "100",
+          "step": "1",
+          "icon": "sunny"
+        },
+        "validators": {}
+      },
+      {
+        "name": "lightDark",
+        "label": "Do you like toggles?",
+        "value": "Yes",
+        "type": "toggle",
+        "validators": {}
+      }
+    ]
+  }

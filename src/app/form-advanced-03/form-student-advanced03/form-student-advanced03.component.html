@@ -1,0 +1,27 @@
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <section class="student">
+                    <h2>Students Form</h2>
+                    <span class="student_name">Student Name</span>
+            </section>
+
+            <form action="" class="register-form" [formGroup]="parentForm" (ngSubmit)="saveData()" >
+                <section class="questions">
+                    <mat-slide-toggle formControlName ="doYouNeedLunch" >Do you need lunch?</mat-slide-toggle>
+                    <mat-slide-toggle formControlName ="doYouNeedTransportToHome" >Do you need transport facility to home? </mat-slide-toggle>
+                    <mat-slide-toggle formControlName ="areYouFreeForWeekendClasses" >Do you want to join weekend classes?</mat-slide-toggle>
+                </section>
+                <br/>
+                <h3>Enter Parents Detail:</h3>
+                <app-person-data-advanced-with-value-accessor
+                title="Fathers Detail" formControlName="fatherData"></app-person-data-advanced-with-value-accessor>
+                <br/>
+                <app-person-data-advanced-with-value-accessor
+                title="Mothers Detail"  formControlName="motherData"></app-person-data-advanced-with-value-accessor>
+                <br/>
+                <button mat-raised-button color="primary">Submit</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

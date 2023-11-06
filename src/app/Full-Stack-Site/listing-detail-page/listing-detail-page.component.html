@@ -1,0 +1,27 @@
+<div class="content-box" *ngIf="!isLoading">
+    <b>Product Name:</b> 
+        <h1>
+            {{productList.title}}
+        </h1>
+    <a routerLink="/fakeProductListings">Back</a>
+
+    <p>
+        <b>
+        Description:
+        </b>
+    </p>
+    <h2>{{productList.description}}</h2>
+    <p><b>
+        Category:
+        </b></p>
+    <p>{{productList.category}}</p>
+    <p><b>
+        Rate:
+        </b></p>
+    <p>${{productList.rating.rate}}</p>
+    <!-- <a routerLink="/fakeProductListings/"{{productList.id}}>Contact Seller</a> -->
+</div>
+
+<div class="content-box" *ngIf="isLoading">
+    <h3>Loading...</h3>
+</div>

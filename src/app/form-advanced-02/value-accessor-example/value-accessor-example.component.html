@@ -1,0 +1,27 @@
+<main class="content">
+<form [formGroup]="myForm" class="form">
+    <h1>Add an Item</h1>
+    <mat-form-field class="form-field">
+        <input 
+        matInput
+        formControlName="itemName"
+        name="no-name"
+        placeholder="Enter an item"
+        />
+    </mat-form-field>
+    <app-lock-input formControlName="isLocked"></app-lock-input>
+
+    <button
+    [disabled]="!myForm.touched"
+    style="margin-top: 1rem;"
+    mat-stroked-button
+    (click)="onSubmit()"
+    >
+    Add Item</button>
+
+</form>
+<!-- <app-lock-input></app-lock-input> -->
+
+</main>
+
+

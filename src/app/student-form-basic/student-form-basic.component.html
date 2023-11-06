@@ -1,0 +1,65 @@
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <section class="student">
+                <h2>Record</h2>
+                <span class="student_name">
+                    {{displayName}}
+                </span>
+            </section>
+            <form action="" class="register-form" [formGroup]="mySchoolForm">
+                <section class="questions">
+                    <mat-form-field>
+                        <mat-label>Student Name</mat-label>
+                        <input matInput placeholder="Eg: Tom" name="studentName" formControlName="studentName"/>
+                      </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Class</mat-label>
+                        <matInput placeholder="Eg: X-A" name="className" formControlName="className"/>
+                      </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Roll No</mat-label>
+                        <input matInput placeholder="Eg: 22" name="rollNo" formControlName="rollNo"/>
+                      </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>E mail</mat-label>
+                        <input matInput placeholder="Eg: tom@mail.com" name="email" formControlName="email"/>
+                      </mat-form-field>
+                    <mat-slide-toggle name="hasScholarship" formControlName="hasScholarship">Student has Scholarship ?
+                    </mat-slide-toggle>
+                </section>
+                <br>
+                <h3>Parents Detail</h3>
+                <fieldset class="field">
+                    <legend class="field_tittle">Add details of father</legend>
+                        <section class="insured" formGroupName="fatherData">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Full Name</mat-label>
+                                <input matInput formControlName="name" />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Mobile Number</mat-label>
+                                <input matInput  formControlName="contactNumber"/>
+                            </mat-form-field>
+                        </section>
+                </fieldset>
+                <br>
+                <fieldset class="field">
+                    <legend class="field_tittle">Add details of mother</legend>
+                    <section class="insured" formGroupName="motherData">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Full Name</mat-label>
+                            <input mat-input formControlName="name"/>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Contact Number</mat-label>
+                            <input mat-input formControlName="contactNumber" />
+                        </mat-form-field>
+                    </section>
+                </fieldset>
+                <br>
+                <button mat-raised-button color="primary">Submit</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
