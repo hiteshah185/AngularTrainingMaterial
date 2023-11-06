@@ -1,6 +1,12 @@
-# AngularTeranetTrainingProject
-
+# Angular Teranet Training
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
+This GitHub repository, "Angular Training Material," serves as a comprehensive resource for individuals looking to learn and master the Angular framework. Whether you're a beginner taking your first steps in web development or an experienced developer looking to delve into Angular, this repository provides a structured and detailed learning path.
+
+
+
+
+
+
 
 ## Development server
 
