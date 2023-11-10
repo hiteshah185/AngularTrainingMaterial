@@ -22,6 +22,10 @@ import { FullStackSiteModule } from './Full-Stack-Site/full-stack-site/full-stac
 import { ContactPageComponent } from './Full-Stack-Site/contact-page/contact-page.component';
 import { JsonFormComponent } from './json-form/json-form.component';
 import { SampleReactiveForm1Component } from './Angular-Forms/Reactive-Approach/sample-reactive-form1/sample-reactive-form1.component';
+import { SampleReactiveForm2Component } from './Angular-Forms/Reactive-Approach/sample-reactive-form2/sample-reactive-form2.component';
+import { CustomServiceWorkingComponent } from './Dependency-Injection/custom-service-working/custom-service-working.component';
+import { ServiceConsumerComponent } from './Dependency-Injection/service-consumer/service-consumer.component';
+import { LoggingService } from './services/logging.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,9 @@ import { SampleReactiveForm1Component } from './Angular-Forms/Reactive-Approach/
     ContactPageComponent,
     JsonFormComponent,
     SampleReactiveForm1Component,
+    SampleReactiveForm2Component,
+    CustomServiceWorkingComponent,
+    ServiceConsumerComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +60,8 @@ import { SampleReactiveForm1Component } from './Angular-Forms/Reactive-Approach/
     PersonDataAdvancedComponent
     
   ],
-  providers: [],
+   providers: [{provide:'LOG_SERVICE', useClass:LoggingService}],
+  //providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

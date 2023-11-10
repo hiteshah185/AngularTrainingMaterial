@@ -15,6 +15,9 @@ import { ListingDetailPageComponent } from './Full-Stack-Site/listing-detail-pag
 import { ContactPageComponent } from './Full-Stack-Site/contact-page/contact-page.component';
 import { JsonFormComponent } from './json-form/json-form.component';
 import { SampleReactiveForm1Component } from './Angular-Forms/Reactive-Approach/sample-reactive-form1/sample-reactive-form1.component';
+import { SampleReactiveForm2Component } from './Angular-Forms/Reactive-Approach/sample-reactive-form2/sample-reactive-form2.component';
+import { CustomServiceWorkingComponent } from './Dependency-Injection/custom-service-working/custom-service-working.component';
+import { ServiceConsumerComponent } from './Dependency-Injection/service-consumer/service-consumer.component';
 
 
 const routes: Routes = [
@@ -36,8 +39,20 @@ const routes: Routes = [
     component:SampleTemplateDrivenForm1Component
   },
   {
-    path:"reactiveForm",
+    path:"reactiveForm1",
     component:SampleReactiveForm1Component
+  },
+  {
+    path:"reactiveForm2",
+    component:SampleReactiveForm2Component
+  },
+  {
+    path:"workingWithCustomServices",
+    component:CustomServiceWorkingComponent
+  },
+  {
+    path: "serviceConsumer",
+    component:ServiceConsumerComponent
   },
   {
     path:"fullStackSite",

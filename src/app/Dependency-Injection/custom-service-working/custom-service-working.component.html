@@ -1,0 +1,8 @@
+<br/>
+<input [(ngModel)]="defaultInput" type="text"/><br/>
+<button (click)="onButtonClicked()">Send via Service</button>
+<div>
+    <h2>Message from User:</h2>
+    <h2>{{this.displayMessage}}</h2>
+</div>  
+<app-service-consumer></app-service-consumer>

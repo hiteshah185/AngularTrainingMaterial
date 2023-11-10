@@ -46,6 +46,7 @@ export class SampleReactiveForm1Component implements OnInit{
   onSubmit(){
     console.log(this.signupForm);
     this.signupForm.reset();
+    
   }
  
 
