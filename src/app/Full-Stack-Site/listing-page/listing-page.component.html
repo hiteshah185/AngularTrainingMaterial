@@ -1,7 +1,7 @@
 <div>
     <div class="content-box" *ngFor="let product of productList$ | async">
         <a routerLink="/fakeProductListings/{{product.id}}">
-            <h3>{{product.title}} -- {{product.price}}</h3>
+            <h3>{{product.title}} ----- >  {{product.price}}</h3>
         </a>
     </div>
 </div>
