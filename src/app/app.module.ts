@@ -26,6 +26,7 @@ import { SampleReactiveForm2Component } from './Angular-Forms/Reactive-Approach/
 import { CustomServiceWorkingComponent } from './Dependency-Injection/custom-service-working/custom-service-working.component';
 import { ServiceConsumerComponent } from './Dependency-Injection/service-consumer/service-consumer.component';
 import { LoggingService } from './services/logging.service';
+import { SearchItemPipe } from './Custom-Pipes/array/search-item.pipe';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { LoggingService } from './services/logging.service';
     SampleReactiveForm2Component,
     CustomServiceWorkingComponent,
     ServiceConsumerComponent,
+    SearchItemPipe,
   ],
   imports: [
     BrowserModule,
