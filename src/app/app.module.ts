@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule,ReactiveFormsModule  }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +27,9 @@ import { CustomServiceWorkingComponent } from './Dependency-Injection/custom-ser
 import { ServiceConsumerComponent } from './Dependency-Injection/service-consumer/service-consumer.component';
 import { LoggingService } from './services/logging.service';
 import { SearchItemPipe } from './Custom-Pipes/array/search-item.pipe';
+import { SearchDirectoryComponent } from './Dynamic-Search/search-directory/search-directory.component';
+import { SearchItemComponent } from './Dynamic-Search/search-item/search-item.component';
+import { CustomErrorHandlerService } from './services/custom-error-handler.service';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { SearchItemPipe } from './Custom-Pipes/array/search-item.pipe';
     CustomServiceWorkingComponent,
     ServiceConsumerComponent,
     SearchItemPipe,
+    SearchDirectoryComponent,
+    SearchItemComponent,
   ],
   imports: [
     BrowserModule,

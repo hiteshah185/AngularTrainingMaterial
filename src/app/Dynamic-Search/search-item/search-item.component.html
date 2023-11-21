@@ -1,0 +1,14 @@
+<div class="media">
+  <img
+    class="mr-3 rounded align-self-center img-fluid"
+    style="width: 70px"
+    [src]="'./assets/images/' + item.firstName + '_pic.jpg'"
+    alt="{{ 'Photo of ' + item.firstName }}"
+  />
+  <div class="media-body align-self-center">
+    <h5 class="m-0">{{ item.firstName }}</h5>
+    {{ item.email }}
+  </div>
+  <!-- media body -->
+</div>
+<!-- media -->

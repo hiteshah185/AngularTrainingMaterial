@@ -1,0 +1,40 @@
+<div class="position-relative container">
+  <div class="row justify-content-center">
+    <div class="card mt-sm-3 col-md-8">
+      <div class="card-body">
+        <h3 class="mb-0"><strong> Item Directory </strong></h3>
+        <div class="form-group">
+          <div class="form-label">
+            <strong>Searching for: </strong> {{ searchQuery }}
+          </div>
+          <input
+            type="text"
+            class="form-control mt-2"
+            [(ngModel)]="searchQuery"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-absolute container" style="left: 0; z-index: 10">
+    <div class="row justify-content-center">
+      <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+        <div class="list-group" *ngIf="searchQuery">
+          <div *ngFor="let person of persons | searchItem : searchQuery">
+            <a
+              href="#"
+              class="list-group-item list-group-item-action flex-column align-items-start"
+              ;
+              query=""
+              [style.backgroundColor]="person ? '#EEE' : '#FFF'"
+              (click)="selectPerson(person)"
+            >
+              <app-search-item [item]="person"></app-search-item>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
