@@ -16,9 +16,7 @@ jobs:
           pip install pyyaml
       - name: Run Feed Generator
         run: |
-          cd src
-          python feed.py
-          cd ..
+          python src/feed.py
       - name: Push Repo
         run: |
           git config user.name github-actions
