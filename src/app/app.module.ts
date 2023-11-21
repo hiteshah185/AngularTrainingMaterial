@@ -55,14 +55,15 @@ import { SearchItemPipe } from './Custom-Pipes/array/search-item.pipe';
     ComplexFormControlModule,
     FullStackSiteModule,
     MatCardModule,
-		MatFormFieldModule,
-		MatButtonModule,
-		MatSlideToggleModule,
-		ReactiveFormsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
     PersonDataAdvancedComponent
-    
+
   ],
-   providers: [{provide:'LOG_SERVICE', useClass:LoggingService}],
+  providers: [{ provide: 'LOG_SERVICE', useClass: LoggingService }, CustomErrorHandlerService,
+  { provide: ErrorHandler, useClass: CustomErrorHandlerService }],
   //providers: [],
   bootstrap: [AppComponent]
 })
