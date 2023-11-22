@@ -18,66 +18,86 @@ import { SampleReactiveForm1Component } from './Angular-Forms/Reactive-Approach/
 import { SampleReactiveForm2Component } from './Angular-Forms/Reactive-Approach/sample-reactive-form2/sample-reactive-form2.component';
 import { CustomServiceWorkingComponent } from './Dependency-Injection/custom-service-working/custom-service-working.component';
 import { ServiceConsumerComponent } from './Dependency-Injection/service-consumer/service-consumer.component';
+import { SearchDirectoryComponent } from './Dynamic-Search/search-directory/search-directory.component';
+import { RegistrationPageComponent } from './Authorization-Authentication-Login/registration-page/registration-page.component';
+import { LoginPageComponent } from './Authorization-Authentication-Login/login-page/login-page.component';
+import { LandingPageComponent } from './Authorization-Authentication-Login/landing-page/landing-page.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {
-    path:"basicStudentForm",
-    component:StudentFormBasicComponent
-  },{
-    path:"advanceStudentForm1",
-    component:FormStudentAdvancedComponent,
-  },{
-    path:"advanceStudentForm2",
+    path: "basicStudentForm",
+    component: StudentFormBasicComponent
+  }, {
+    path: "advanceStudentForm1",
+    component: FormStudentAdvancedComponent,
+  }, {
+    path: "advanceStudentForm2",
     component: ValueAccessorExampleComponent
-  },{
-    path:"advanceStudentForm3",
-    component:FormStudentAdvanced03Component
+  }, {
+    path: "advanceStudentForm3",
+    component: FormStudentAdvanced03Component
   },
   {
-    path:"templateDrivenForm",
-    component:SampleTemplateDrivenForm1Component
+    path: "templateDrivenForm",
+    component: SampleTemplateDrivenForm1Component
   },
   {
-    path:"reactiveForm1",
-    component:SampleReactiveForm1Component
+    path: "reactiveForm1",
+    component: SampleReactiveForm1Component
   },
   {
-    path:"reactiveForm2",
-    component:SampleReactiveForm2Component
+    path: "reactiveForm2",
+    component: SampleReactiveForm2Component
   },
   {
-    path:"workingWithCustomServices",
-    component:CustomServiceWorkingComponent
+    path: "workingWithCustomServices",
+    component: CustomServiceWorkingComponent
   },
   {
     path: "serviceConsumer",
-    component:ServiceConsumerComponent
+    component: ServiceConsumerComponent
   },
   {
-    path:"fullStackSite",
-    component:FullStackSiteMainPageComponent,
+    path: "fullStackSite",
+    component: FullStackSiteMainPageComponent,
   },
   {
-    path:'fakeProductListings',component:ListingPageComponent,pathMatch:'full'
-  }, 
-  {
-    path: 'fakeProductListings/:id',component:ListingDetailPageComponent
+    path: 'fakeProductListings', component: ListingPageComponent, pathMatch: 'full'
   },
   {
-    path:'contact/:id',component:ContactPageComponent
+    path: 'fakeProductListings/:id', component: ListingDetailPageComponent
   },
   {
-    path:'formFromJson',
-    component:JsonFormComponent
+    path: 'contact/:id', component: ContactPageComponent
   },
   {
-    path:"login",
-    component:LoginComponent
-  },{
-    path:"securePage",
-    component:SecurePageComponent,
-    canActivate:[
+    path: 'formFromJson',
+    component: JsonFormComponent
+  },
+  {
+    path: 'dynamicSearch',
+    component: SearchDirectoryComponent
+  },
+  {
+    path: 'landingPage',
+    component: LandingPageComponent
+  },
+  {
+    path: 'register',
+    component: RegistrationPageComponent
+  },
+  {
+    path: 'authLogin',
+    component: LoginPageComponent
+  },
+  {
+    path: "login",
+    component: LoginComponent
+  }, {
+    path: "securePage",
+    component: SecurePageComponent,
+    canActivate: [
       IdentityGuardService,
       PermissionsService
     ]
@@ -86,7 +106,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  providers:[IdentityGuardService,
+  providers: [IdentityGuardService,
     PermissionsService],
   exports: [RouterModule]
 })

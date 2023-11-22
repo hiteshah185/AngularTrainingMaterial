@@ -13,7 +13,9 @@ export class LoginComponent {
     password:string
   } 
   = { username:'',password:'' };
-  constructor(private _loginService:LoginService){}
+  constructor(
+    private _loginService:LoginService
+    ){}
   login(){
     const currentUser:LoginDetails={
       username: this.userCredential.username,

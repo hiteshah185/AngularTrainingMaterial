@@ -1,0 +1,9 @@
+div["]
+<div *ngIf="_loginService.currentUserSig() === null">
+  <a routerLink="/authLogin">Login</a>
+  <a routerLink="/register">Register</a>
+</div>
+<div *ngIf="_loginService.currentUserSig()">
+  {{ _loginService.currentUserSig()?.username }}
+  <span (click)="onLogOut()">Logout</span>
+</div>
