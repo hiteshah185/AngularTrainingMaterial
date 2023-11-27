@@ -21,6 +21,7 @@ jobs:
           python src/feed.py
       - name: Push Repo
         run: |
+          git config --global user.name "hiteshah185"
           git add .
           git commit -m "Modified "
           git push
