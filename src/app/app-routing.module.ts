@@ -23,6 +23,7 @@ import { RegistrationPageComponent } from './Authorization-Authentication-Login/
 import { LoginPageComponent } from './Authorization-Authentication-Login/login-page/login-page.component';
 import { LandingPageComponent } from './Authorization-Authentication-Login/landing-page/landing-page.component';
 import { HomePageComponent } from './Example-ngRx/home-page/home-page.component';
+import { TodoComponent } from './Example-Signal/todo/todo.component';
 
 
 export const routes: Routes = [
@@ -87,6 +88,10 @@ export const routes: Routes = [
   {
     path:'ngRxHomePage',
     component:HomePageComponent
+  },
+  {
+    path:'todo',
+    component:TodoComponent
   },
   {
     path: 'register',

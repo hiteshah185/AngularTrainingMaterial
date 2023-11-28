@@ -37,6 +37,7 @@ import { counterReducer, movieReducer } from './Example-ngRx/Reducers/movie.redu
 import { MovieListComponent } from './Example-ngRx/movie-list/movie-list.component';
 import { LoginPageComponent } from './Authorization-Authentication-Login/login-page/login-page.component';
 import { MaterialModule } from './material.module';
+import { TodoComponent } from './Example-Signal/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,7 @@ import { MaterialModule } from './material.module';
     FullStackSiteModule,
     ReactiveFormsModule,
     PersonDataAdvancedComponent,
-    StoreModule.forRoot({count:counterReducer}),
+    StoreModule.forRoot({ count: counterReducer }),
     MaterialModule
   ],
   providers: [{ provide: 'LOG_SERVICE', useClass: LoggingService }, CustomErrorHandlerService,
