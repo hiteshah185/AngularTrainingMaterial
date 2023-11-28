@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { ComplexFormControlModule } from './form-advanced-02/complex-form-control.module';
 import { MatButtonModule } from '@angular/material/button';
@@ -30,6 +31,12 @@ import { SearchItemPipe } from './Custom-Pipes/array/search-item.pipe';
 import { SearchDirectoryComponent } from './Dynamic-Search/search-directory/search-directory.component';
 import { SearchItemComponent } from './Dynamic-Search/search-item/search-item.component';
 import { CustomErrorHandlerService } from './services/custom-error-handler.service';
+import { HomePageComponent } from './Example-ngRx/home-page/home-page.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer, movieReducer } from './Example-ngRx/Reducers/movie.reducers';
+import { MovieListComponent } from './Example-ngRx/movie-list/movie-list.component';
+import { LoginPageComponent } from './Authorization-Authentication-Login/login-page/login-page.component';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -47,25 +54,22 @@ import { CustomErrorHandlerService } from './services/custom-error-handler.servi
     SearchItemPipe,
     SearchDirectoryComponent,
     SearchItemComponent,
+    HomePageComponent,
+    MovieListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatFormFieldModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatIconModule,
     ComplexFormControlModule,
     FullStackSiteModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatSlideToggleModule,
     ReactiveFormsModule,
-    PersonDataAdvancedComponent
-
+    PersonDataAdvancedComponent,
+    StoreModule.forRoot({count:counterReducer}),
+    MaterialModule
   ],
   providers: [{ provide: 'LOG_SERVICE', useClass: LoggingService }, CustomErrorHandlerService,
   { provide: ErrorHandler, useClass: CustomErrorHandlerService }],

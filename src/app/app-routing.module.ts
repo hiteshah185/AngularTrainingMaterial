@@ -22,6 +22,7 @@ import { SearchDirectoryComponent } from './Dynamic-Search/search-directory/sear
 import { RegistrationPageComponent } from './Authorization-Authentication-Login/registration-page/registration-page.component';
 import { LoginPageComponent } from './Authorization-Authentication-Login/login-page/login-page.component';
 import { LandingPageComponent } from './Authorization-Authentication-Login/landing-page/landing-page.component';
+import { HomePageComponent } from './Example-ngRx/home-page/home-page.component';
 
 
 export const routes: Routes = [
@@ -82,6 +83,10 @@ export const routes: Routes = [
   {
     path: 'landingPage',
     component: LandingPageComponent
+  },
+  {
+    path:'ngRxHomePage',
+    component:HomePageComponent
   },
   {
     path: 'register',
