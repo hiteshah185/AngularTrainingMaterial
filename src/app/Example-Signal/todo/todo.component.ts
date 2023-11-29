@@ -11,8 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoComponent {
-  taskString = signal('');
-  tasks: WritableSignal<string[]> = signal([]);
+  private taskString = signal('');
+  private tasks: WritableSignal<string[]> = signal([]);
 
   addTask(event: Event) {
     event.preventDefault();

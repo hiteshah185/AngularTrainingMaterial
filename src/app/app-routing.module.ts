@@ -91,7 +91,7 @@ export const routes: Routes = [
   },
   {
     path:'todo',
-    component:TodoComponent
+    loadComponent:()=> import('./Example-Signal/todo/todo.component').then((it=>it.TodoComponent))
   },
   {
     path: 'register',
