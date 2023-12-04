@@ -38,6 +38,8 @@ import { MovieListComponent } from './Example-ngRx/movie-list/movie-list.compone
 import { LoginPageComponent } from './Authorization-Authentication-Login/login-page/login-page.component';
 import { MaterialModule } from './material.module';
 import { TodoComponent } from './Example-Signal/todo/todo.component';
+import { RequestCache, RequestCacheService } from './services/Cache/request-cache.service';
+import { httpInterceptorsProviders } from '.';
 
 @NgModule({
   declarations: [
@@ -73,6 +75,8 @@ import { TodoComponent } from './Example-Signal/todo/todo.component';
     MaterialModule
   ],
   providers: [{ provide: 'LOG_SERVICE', useClass: LoggingService }, CustomErrorHandlerService,
+  { provide: RequestCache, useClass: RequestCacheService },
+    httpInterceptorsProviders,
   { provide: ErrorHandler, useClass: CustomErrorHandlerService }],
   //providers: [],
   bootstrap: [AppComponent]
