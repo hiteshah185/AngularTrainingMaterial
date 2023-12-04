@@ -8,23 +8,31 @@ export class LoggingService {
 
   private myData = new BehaviorSubject("<----Default Message---->");
   public myObserver = this.myData.asObservable();
+  public messages: string[] = [];
 
   // constructor() { }
 
-  logging(status:string){
+  logging(status: string) {
     console.log(status);
   }
-  warning(message:string){
+  warning(message: string) {
     console.warn(message);
   }
-  alert(message:string){
+  alert(message: string) {
     window.alert(message);
   }
-  
-  sendData(data:any){
+
+  sendData(data: any) {
     console.log(data);
     this.myData.next(data)
   }
-  
+
+  add(message: string) {
+    this.messages.push(message);
+  }
+  clear() {
+    this.messages = [];
+  }
+
 
 }
