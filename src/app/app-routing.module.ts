@@ -24,6 +24,8 @@ import { LoginPageComponent } from './Authorization-Authentication-Login/login-p
 import { LandingPageComponent } from './Authorization-Authentication-Login/landing-page/landing-page.component';
 import { HomePageComponent } from './Example-ngRx/home-page/home-page.component';
 import { TodoComponent } from './Example-Signal/todo/todo.component';
+import { SampleStudentFormComponent } from './form-advanced-04-with-unit-tests/sample-student-form/sample-student-form.component';
+import { UploaderComponent } from './File-Upload/uploader/uploader.component';
 
 
 export const routes: Routes = [
@@ -86,12 +88,20 @@ export const routes: Routes = [
     component: LandingPageComponent
   },
   {
-    path:'ngRxHomePage',
-    component:HomePageComponent
+    path: 'sampleFormWithUnitTest',
+    component: SampleStudentFormComponent
   },
   {
-    path:'todo',
-    loadComponent:()=> import('./Example-Signal/todo/todo.component').then((it=>it.TodoComponent))
+    path: 'upload',
+    component: UploaderComponent
+  },
+  {
+    path: 'ngRxHomePage',
+    component: HomePageComponent
+  },
+  {
+    path: 'todo',
+    loadComponent: () => import('./Example-Signal/todo/todo.component').then((it => it.TodoComponent))
   },
   {
     path: 'register',
