@@ -3,3 +3,5 @@
 2023-11-28 05:06:41,100 - 2023-11-28 05:06:41.100794: This is an example message to be logged.
 2023-11-29 09:38:30,235 - 2023-11-29 09:38:30.235513: This is an example message to be logged.
 2023-11-29 12:37:45,041 - 2023-11-29 12:37:45.041466: This is an example message to be logged.
+2023-12-04 10:13:54,008 - 2023-12-04 10:13:54.008012: This is an example message to be logged.
+2023-12-06 07:20:57,735 - 2023-12-06 07:20:57.735423: This is an example message to be logged.
