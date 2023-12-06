@@ -17,5 +17,5 @@ def log_data(data):
     current_time = datetime.datetime.now()
     logger.info(f"{current_time}: {data}")
 
-data = "This is an example message to be logged."
+data = "Pull Request Merged."
 log_data(data)
