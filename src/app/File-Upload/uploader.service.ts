@@ -45,7 +45,7 @@ export class UploaderService {
   }
 
   private handleError(file: File) {
-    const userMessage: string = `${file.name} upload failed`;
+    const userMessage: string = `${file.name} upload failed and`;
     return (error: HttpErrorResponse) => {
       console.error(error);
       const message = (error.error instanceof Error) ?
