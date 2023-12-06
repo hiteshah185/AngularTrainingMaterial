@@ -7,7 +7,7 @@ def log_data(data):
     logger.setLevel(logging.INFO)
 
     # Create a handler to write logs to a file
-    handler = logging.FileHandler('data_log.txt')
+    handler = logging.FileHandler('pr_log.txt')
     handler.setFormatter(logging.Formatter('%(asctime)s - %(message)s'))
 
     # Add the handler to the logger
