@@ -40,6 +40,7 @@ import { MaterialModule } from './material.module';
 import { TodoComponent } from './Example-Signal/todo/todo.component';
 import { RequestCache, RequestCacheService } from './services/Cache/request-cache.service';
 import { httpInterceptorsProviders } from '.';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { httpInterceptorsProviders } from '.';
     SearchItemComponent,
     HomePageComponent,
     MovieListComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
