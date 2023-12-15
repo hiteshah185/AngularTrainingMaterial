@@ -26,6 +26,7 @@ import { HomePageComponent } from './Example-ngRx/home-page/home-page.component'
 import { TodoComponent } from './Example-Signal/todo/todo.component';
 import { SampleStudentFormComponent } from './form-advanced-04-with-unit-tests/sample-student-form/sample-student-form.component';
 import { UploaderComponent } from './File-Upload/uploader/uploader.component';
+import { TestFormComponent } from './form-advanced-05-with-custom-error/test-form/test-form.component';
 
 
 export const routes: Routes = [
@@ -41,6 +42,10 @@ export const routes: Routes = [
   }, {
     path: "advanceStudentForm3",
     component: FormStudentAdvanced03Component
+  },
+  {
+    path: 'formWithCustomError',
+    component: TestFormComponent
   },
   {
     path: "templateDrivenForm",

@@ -1,0 +1,24 @@
+<form [formGroup]="myTestFormGroup">
+  <label for="email">Email</label>
+  <input id="email" type="email" formControlName="email" />
+  <!-- <span
+    class="error"
+    *ngIf="myTestFormGroup.controls['email'].touched &&
+     myTestFormGroup.controls['email'].errors?.['required']"
+  >
+    Email is required
+  </span>
+  <span
+    class="error"
+    *ngIf="myTestFormGroup.controls['email'].touched &&
+     myTestFormGroup.controls['email'].errors?.['email']"
+  >
+    Please provide a valid email
+  </span> -->
+  <app-error-field
+    [control]="myTestFormGroup.controls['email']"
+    [errorMessage]="validationMessages.email.required"
+  >
+  </app-error-field>
+  <button type="submit">Submit</button>
+</form>

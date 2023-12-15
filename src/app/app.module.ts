@@ -41,6 +41,8 @@ import { TodoComponent } from './Example-Signal/todo/todo.component';
 import { RequestCache, RequestCacheService } from './services/Cache/request-cache.service';
 import { httpInterceptorsProviders } from '.';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { TestFormComponent } from './form-advanced-05-with-custom-error/test-form/test-form.component';
+import { ErrorFieldComponent } from './form-advanced-05-with-custom-error/error-field/error-field.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { SpinnerComponent } from './spinner/spinner.component';
     SearchItemComponent,
     HomePageComponent,
     MovieListComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    TestFormComponent,
+    ErrorFieldComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ReactiveFormsModule,
     PersonDataAdvancedComponent,
     StoreModule.forRoot({ count: counterReducer }),
-    MaterialModule
+    MaterialModule,
   ],
   providers: [{ provide: 'LOG_SERVICE', useClass: LoggingService }, CustomErrorHandlerService,
   { provide: RequestCache, useClass: RequestCacheService },
