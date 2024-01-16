@@ -8,29 +8,29 @@ import { PersonDataAdvancedWithValueAccessorComponent } from '../person-data-adv
 
 @Component({
   selector: 'app-form-student-advanced03',
-  standalone:true,
-  imports:[
+  standalone: true,
+  imports: [
     MatCardModule,
-		MatFormFieldModule,
-		MatButtonModule,
-		MatSlideToggleModule,
-		ReactiveFormsModule,
-		PersonDataAdvancedWithValueAccessorComponent
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    PersonDataAdvancedWithValueAccessorComponent
   ],
   templateUrl: './form-student-advanced03.component.html',
   styleUrls: ['./form-student-advanced03.component.scss']
 })
 export class FormStudentAdvanced03Component {
-  constructor(private _formBuilder:NonNullableFormBuilder){}
+  constructor(private _formBuilder: NonNullableFormBuilder) { }
   parentForm = this._formBuilder.group({
     doYouNeedLunch: this._formBuilder.control(false),
     doYouNeedTransportToHome: this._formBuilder.control(false),
     areYouFreeForWeekendClasses: this._formBuilder.control(false),
-    fatherData: this._formBuilder.control(null,{validators:[Validators.required]}),
-    motherData: this._formBuilder.control({value:null,disabled:true},{validators:[Validators.required]})
+    fatherData: this._formBuilder.control(null, { validators: [Validators.required] }),
+    motherData: this._formBuilder.control({ value: null, disabled: true }, { validators: [Validators.required] })
   })
 
-  saveData(){
+  saveData() {
     console.log(this.parentForm.getRawValue());
   }
 

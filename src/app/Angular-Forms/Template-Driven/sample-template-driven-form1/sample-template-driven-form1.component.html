@@ -1,64 +1,124 @@
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-10 col-md-8
-        col-sm-offest-1 col-md-offset-2">
-            <form class="main-form-container" (ngSubmit)="onSubmit(fname)" #fname="ngForm">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" class="form-control"  [ngModel]="defaultUserName" name="username" required #username="ngModel">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offest-1 col-md-offset-2">
+      <form
+        class="main-form-container"
+        (ngSubmit)="onSubmit(fname)"
+        #fname="ngForm"
+      >
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            [ngModel]="defaultUserName"
+            name="username"
+            required
+            #username="ngModel"
+          />
 
-                    <div [hidden]="username.valid || username.pristine" class="alert alert-danger"> Username is required </div>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email ID</label>
-                    <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
-
-                    <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email</span>
-                </div>
-                <div class="form-group">
-                    <label for="Question">Choose a secret question</label>
-                    <select id="Question" class="form-control" ngModel name="secretQuestion">
-                        <option value="FavFood">What is your favorite food?</option>
-                        <option value="mathTeacher">What is the name of your first maths teacher?</option>
-                        <option value="FavMActor">Who is your favorite malayalam actor?</option>
-
-
-                        <!-- <option *ngFor="let question of secretQuestions" [value]="question">{{question}}</option> -->
-                    </select>
-                </div>
-                <div id="user-form" ngModelGroup="childmodelGroup" #modelGroup="ngModelGroup">
-                    <div class="form-group">
-                        <label for="newusername">New User Name</label>
-                        <input type="text" class="form-control" id="newusername" name="newusername" ngModel required>
-                    </div>
-                    <div class="form-group">
-                        <label for="">New Email</label>
-                        <input type="email" class="form-control" id="newemail" name="newemail" ngModel required email #email=""ngModel>
-                    </div>
-                </div>
-
-                
-                <br/>
-                <label for="">Do you want save this form ?</label>
-                <div class="radio" *ngFor="let toggleQuestion of toggleQuestions">
-                    <label for="toggleQuestion">
-                        <input type="radio" name="toggleQuestion" ngModel [value]="toggleQuestion">{{toggleQuestion}}
-                    </label>
-                </div>
-
-
-                <br/>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <!-- <button type="submit" class="btn btn-primary"[disabled]="!fname.valid">Submit with disabled</button> -->
-                <!-- <button (click)="onReset(); fname.reset()">Reset Form</button> -->
-            </form>
-            <div *ngIf="isSubmitted">
-                <br/>
-                <p>UserName:</p>{{this.formData.username}}
-                <p>Email:</p>{{this.formData.email}}
-                <p>Secret Question:</p>{{this.formData.secretQuestion}}
-            </div>
-
+          <div
+            [hidden]="username.valid || username.pristine"
+            class="alert alert-danger"
+          >
+            Username is required
+          </div>
         </div>
+        <div class="form-group">
+          <label for="email">Email ID</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+            #email="ngModel"
+          />
+
+          <span class="help-block" *ngIf="!email.valid && email.touched"
+            >Please enter a valid email</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="Question">Choose a secret question</label>
+          <select
+            id="Question"
+            class="form-control"
+            ngModel
+            name="secretQuestion"
+          >
+            <option value="FavFood">What is your favorite food?</option>
+            <option value="mathTeacher">
+              What is the name of your first maths teacher?
+            </option>
+            <option value="FavMActor">
+              Who is your favorite malayalam actor?
+            </option>
+
+            <!-- <option *ngFor="let question of secretQuestions" [value]="question">{{question}}</option> -->
+          </select>
+        </div>
+        <div
+          id="user-form"
+          ngModelGroup="childmodelGroup"
+          #modelGroup="ngModelGroup"
+        >
+          <div class="form-group">
+            <label for="newusername">New User Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="newusername"
+              name="newusername"
+              ngModel
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="">New Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="newemail"
+              name="newemail"
+              ngModel
+              email
+              #email=""
+              ngModel
+            />
+          </div>
+        </div>
+
+        <br />
+        <label for="">Do you want save this form ?</label>
+        <div class="radio" *ngFor="let toggleQuestion of toggleQuestions">
+          <label for="toggleQuestion">
+            <input
+              type="radio"
+              name="toggleQuestion"
+              ngModel
+              [value]="toggleQuestion"
+            />{{ toggleQuestion }}
+          </label>
+        </div>
+
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <!-- <button type="submit" class="btn btn-primary"[disabled]="!fname.valid">Submit with disabled</button> -->
+        <!-- <button (click)="onReset(); fname.reset()">Reset Form</button> -->
+      </form>
+      <div *ngIf="isSubmitted">
+        <br />
+        <p>UserName:</p>
+        {{ this.formData.username }}
+        <p>Email:</p>
+        {{ this.formData.email }}
+        <p>Secret Question:</p>
+        {{ this.formData.secretQuestion }}
+      </div>
     </div>
+  </div>
 </div>

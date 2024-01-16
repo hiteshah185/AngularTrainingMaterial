@@ -17,7 +17,7 @@ export class ValueAccessorExampleComponent implements OnInit {
   buildForm() {
     this.myForm = this._formBuilder.group({
       itemName: new FormControl(),
-      isLocked: new FormControl({ value: false, disabled: false })
+      isLocked: new FormControl({ value: false, disabled: true })
 
     })
   }

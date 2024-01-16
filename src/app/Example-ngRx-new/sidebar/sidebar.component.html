@@ -1,0 +1,31 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/">Home</a>
+      <a mat-list-item routerLink="/basicStudentForm">Basic Student Form</a>
+      <a mat-list-item routerLink="/reactiveForm1">Intro - Reactive Form</a>
+      <a mat-list-item routerLink="/templateDrivenForm"
+        >Intro - Template Form</a
+      >
+      <a mat-list-item routerLink="/advanceStudentForm1">Reactive Form - 1 </a>
+      <a mat-list-item routerLink="/advanceStudentForm2">Reactive Form - 2 </a>
+      <a mat-list-item routerLink="/advanceStudentForm3">Reactive Form - 3 </a>
+      <a mat-list-item routerLink="/login">Authorized Login</a>
+      <a mat-list-item routerLink="/securePage">Secure Page</a>
+      <a mat-list-item routerLink="/lazy-loading">Lazy Loading routes</a>
+      <a mat-list-item routerLink="/todo">To-Do App</a>
+      <a mat-list-item routerLink="/upload">Uploader</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

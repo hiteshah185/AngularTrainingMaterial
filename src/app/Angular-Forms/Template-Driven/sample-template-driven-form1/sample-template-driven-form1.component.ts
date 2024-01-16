@@ -22,7 +22,7 @@ export class SampleTemplateDrivenForm1Component {
 
   onSubmit(form: NgForm){
     console.log("Form Submitted:",form);
-    console.log("Form Value:",form.value.email);
+    console.log("Form Value:",form.value.username);
     this.defaultUserName="A new Form Username"
     // this.formData.username= form.value.childmodelGroup.newusername;
     // this.isSubmitted= true;

@@ -38,7 +38,7 @@ const newUser:User={
 }
 let currentUser:Partial<User>={}
 type Domain = ".com" | ".in"
-type email= `{string}@{$Domain}`
+type email= `{string}@{$Domain}`;
 type userList = User[]; 
 interface Admin extends User {
 permission:string[]
@@ -103,7 +103,7 @@ const checkState = (nwkState:NetworkState)=>{
 
 const aFunction = (value:Date | string)=>{
     if(value instanceof Date){
-        return value.getDay
+        return value.getDay;
     }else{
 
     }

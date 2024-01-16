@@ -7,7 +7,7 @@ import { CustomLoggingService } from '../CustomService';
   templateUrl: './custom-service-working.component.html',
   styleUrls: ['./custom-service-working.component.scss'],
   //  providers:[LoggingService]
-   //  providers:[{provide:'LOG_SERVICE',useClass:LoggingService}]
+   //  providers:[{provide:'LOG_SERVICE1',useClass:LoggingService}]
 })
 export class CustomServiceWorkingComponent {
   defaultInput:string="";
@@ -15,7 +15,7 @@ export class CustomServiceWorkingComponent {
 
   constructor(private _loggingService: LoggingService){}
   // constructor(@Inject('LOG_SERVICE')private _loggingService: LoggingService){}
-  // private service = inject(LoggingService);
+   private service = inject(LoggingService);
 
   onButtonClicked(){
     this.displayMessage = this.defaultInput;

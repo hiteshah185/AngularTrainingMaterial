@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, WritableSignal, signal, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, WritableSignal, signal, computed, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -12,7 +12,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class TodoComponent {
   private taskString = signal('');
+  public pageName: string = 'To-Do App';
   private tasks: WritableSignal<string[]> = signal([]);
+  constructor(private _cdr: ChangeDetectorRef) {
+    setTimeout(() => {
+      this.pageName = 'To-Do App using Signal',
+        this._cdr.markForCheck();
+    }, 3000);
+  }
 
   addTask(event: Event) {
     event.preventDefault();
