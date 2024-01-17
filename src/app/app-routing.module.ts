@@ -27,6 +27,7 @@ import { TodoComponent } from './Example-Signal/todo/todo.component';
 import { SampleStudentFormComponent } from './form-advanced-04-with-unit-tests/sample-student-form/sample-student-form.component';
 import { UploaderComponent } from './File-Upload/uploader/uploader.component';
 import { TestFormComponent } from './form-advanced-05-with-custom-error/test-form/test-form.component';
+import { EncryptionMethodsComponent } from './Crypto/encryption-methods/encryption-methods.component';
 
 
 export const routes: Routes = [
@@ -83,6 +84,10 @@ export const routes: Routes = [
   {
     path: 'formFromJson',
     component: JsonFormComponent
+  },
+  {
+    path: 'encryption',
+    component:EncryptionMethodsComponent
   },
   {
     path: 'dynamicSearch',
