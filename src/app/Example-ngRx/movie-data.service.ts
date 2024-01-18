@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import { Movie } from './Movie.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
@@ -11,14 +11,14 @@ export class MovieDataService {
 
   constructor(private _http: HttpClient) { }
   getMovies(): Observable<Movie[]> {
-    return this._http.get<Movie[]>(this.baseURL).pipe(
+    return this._http.get<Movie[]>(this.baseURL).pipe(tap(data => console.log('All Movie Data:', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   addMovies(movie: Movie): Observable<Movie> {
     movie.id = 0;
-    return this._http.post<Movie>(this.baseURL, movie).pipe(
+    return this._http.post<Movie>(this.baseURL, movie).pipe(tap(value=>console.log("Added Movie:",value)),
       catchError(this.handleError)
     );
   }
