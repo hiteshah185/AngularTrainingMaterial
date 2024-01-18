@@ -28,6 +28,7 @@ import { SampleStudentFormComponent } from './form-advanced-04-with-unit-tests/s
 import { UploaderComponent } from './File-Upload/uploader/uploader.component';
 import { TestFormComponent } from './form-advanced-05-with-custom-error/test-form/test-form.component';
 import { EncryptionMethodsComponent } from './Crypto/encryption-methods/encryption-methods.component';
+import { CanvasComponent } from './RxJs/Graphics/canvas/canvas.component';
 
 
 export const routes: Routes = [
@@ -87,7 +88,7 @@ export const routes: Routes = [
   },
   {
     path: 'encryption',
-    component:EncryptionMethodsComponent
+    component: EncryptionMethodsComponent
   },
   {
     path: 'dynamicSearch',
@@ -108,6 +109,10 @@ export const routes: Routes = [
   {
     path: 'ngRxHomePage',
     component: HomePageComponent
+  },
+  {
+    path: 'draw',
+    component: CanvasComponent
   },
   {
     path: 'todo',
