@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../entity/employee';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, catchError, tap, throwError } from 'rxjs';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,16 @@ export class SampleDataService {
   private mockDataUrl = 'assets/data.json'
 
   constructor(
-    private _http: HttpClient
+    private _http: HttpClient,
+    private _notificationService: NotificationService
   ) { }
 
   getMockData(): Observable<Employee[]> {
-    return this._http.get<Employee[]>(this.mockDataUrl);
+    return this._http.get<Employee[]>(this.mockDataUrl)
+      .pipe(
+        tap(data => { console.log('All:', JSON.stringify(data)) }),
+        catchError(this.handleError)
+      );
   }
 
   private employeeList: Employee[] = [
@@ -83,6 +89,17 @@ export class SampleDataService {
 
   getItem<Type>(items: Type[]): Type[] {
     return (new Array<Type>()).concat(items);
+  }
+
+  handleError(err: HttpErrorResponse): Observable<never> {
+    let errorMessage: string = '';
+    if (err.error instanceof ErrorEvent) {
+      errorMessage += `An error occurred: ${err.error.message}`
+    } else {
+      errorMessage += `Server returned code: ${err.status}, error message is: ${err.message}`;
+    }
+    this._notificationService.error(errorMessage);
+    return throwError(() => errorMessage);
   }
 
 
