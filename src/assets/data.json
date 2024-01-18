@@ -1,0 +1,121 @@
+[
+    {
+      "firstName": "Riya",
+      "lastName": "Patel",
+      "email": "riya.patel@example.com",
+      "phoneNumber": 9876543210,
+      "age": 32,
+      "teamName": "Marketing",
+      "employeeType": "Full-Time",
+      "isActive": true
+    },
+    {
+      "firstName": "Noah",
+      "lastName": "Williams",
+      "email": "noah.williams@example.com",
+      "phoneNumber": 1234567890,
+      "age": 28,
+      "teamName": "Sales",
+      "employeeType": "Part-Time",
+      "isActive": true
+    },
+    {
+      "firstName": "Olivia",
+      "lastName": "Brown",
+      "email": "olivia.brown@example.com",
+      "phoneNumber": 7775553333,
+      "age": 35,
+      "teamName": "Finance",
+      "employeeType": "Contractor",
+      "isActive": true
+    },
+    {
+      "firstName": "Aarav",
+      "lastName": "Singh",
+      "email": "aarav.singh@example.in",
+      "phoneNumber": 9191919191,
+      "age": 27,
+      "teamName": "IT",
+      "employeeType": "Full-Time",
+      "isActive": true
+    },
+    {
+      "firstName": "Maya",
+      "lastName": "Patel",
+      "email": "maya.patel@example.com",
+      "phoneNumber": 8884442222,
+      "age": 31,
+      "teamName": "HR",
+      "employeeType": "Full-Time",
+      "isActive": true
+    },
+    {
+      "firstName": "Liam",
+      "lastName": "Jones",
+      "email": "liam.jones@example.com",
+      "phoneNumber": 1114447777,
+      "age": 40,
+      "teamName": "Operations",
+      "employeeType": "Full-Time",
+      "isActive": true
+    },
+    {
+      "firstName": "Anjali",
+      "lastName": "Sharma",
+      "email": "anjali.sharma@example.com",
+      "phoneNumber": 9595959595,
+      "age": 24,
+      "teamName": "Sales",
+      "employeeType": "Part-Time",
+      "isActive": true
+    },
+    {
+      "firstName": "Emily",
+      "lastName": "Johnson",
+      "email": "emily.johnson@example.com",
+      "phoneNumber": 6665554444,
+      "age": 37,
+      "teamName": "Marketing",
+      "employeeType": "Contractor",
+      "isActive": true
+    },
+    {
+      "firstName": "Rohan",
+      "lastName": "Khanna",
+      "email": "rohan.khanna@example.com",
+      "phoneNumber": 8585858585,
+      "age": 30,
+      "teamName": "IT",
+      "employeeType": "Full-Time",
+      "isActive": true
+    },
+    {
+      "firstName": "Sophia",
+      "lastName": "Miller",
+      "email": "sophia.miller@example.com",
+      "phoneNumber": 5552223333,
+      "age": 26,
+      "teamName": "HR",
+      "employeeType": "Full-Time",
+      "isActive": true
+    },
+    {
+      "firstName": "Priya",
+      "lastName": "Gupta",
+      "email": "priya.gupta@example.com",
+      "phoneNumber": 7575757575,
+      "age": 34,
+      "teamName": "Finance",
+      "employeeType": "Full-Time",
+      "isActive": true
+    },
+    {
+        "firstName": "Isabella",
+        "lastName": "White",
+        "email": "isabella.white@example.co.uk",
+        "age": 26,
+        "teamName": "Finance",
+        "employeeType": "Full-Time",
+        "isActive": true
+      }
+]

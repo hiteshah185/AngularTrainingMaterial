@@ -9,7 +9,7 @@ import { SampleDataService } from 'src/app/services/sample-data.service';
 })
 export class SearchDirectoryComponent implements OnInit {
   constructor(private _dataService: SampleDataService) {
-    this.searchQuery='';
+    this.searchQuery = '';
   }
   searchQuery!: string;
   persons!: Employee[];
@@ -17,10 +17,21 @@ export class SearchDirectoryComponent implements OnInit {
 
   ngOnInit() {
     this.getPersonList();
+    this.searchQuery = '';
   }
 
   getPersonList() {
     this.persons = this._dataService.findAll();
+    this._dataService.getMockData().subscribe(
+      {
+        next: emp => {
+          this.persons = emp
+          console.log(
+            emp
+          )
+        }
+      }
+    )
   }
   selectPerson(item: any) {
     this.searchQuery = item.firstName;
