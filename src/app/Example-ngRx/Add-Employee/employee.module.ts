@@ -4,6 +4,8 @@ import { ViewEmployeeComponent } from './view-employee/view-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeeRoutingModule } from './employee.routing';
 import { EmployeeHomeComponent } from './employee-home/employee-home.component';
+import { StoreModule } from '@ngrx/store';
+import { employeeFeatureKey, reducer } from './employee-store/employee.reducers';
 
 const childComponents = [
   EmployeeHomeComponent,
@@ -16,7 +18,12 @@ const childComponents = [
   ],
   imports: [
     CommonModule,
-    EmployeeRoutingModule
-  ]
+    EmployeeRoutingModule,
+    StoreModule.forFeature(employeeFeatureKey, reducer),
+  ],
+  exports: [
+    childComponents
+  ],
+  providers: []
 })
 export class EmployeeModule { }
