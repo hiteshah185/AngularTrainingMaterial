@@ -31,6 +31,7 @@ import { EncryptionMethodsComponent } from './Crypto/encryption-methods/encrypti
 import { CanvasComponent } from './RxJs/Graphics/canvas/canvas.component';
 
 
+
 export const routes: Routes = [
   {
     path: "basicStudentForm",
@@ -109,6 +110,10 @@ export const routes: Routes = [
   {
     path: 'ngRxHomePage',
     component: HomePageComponent
+  },
+  {
+    path: 'ngRxEmployee',
+    loadChildren: () => import('./Example-ngRx/Add-Employee/employee.module').then(mod => mod.EmployeeModule)
   },
   {
     path: 'draw',
