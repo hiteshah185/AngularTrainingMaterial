@@ -29,6 +29,7 @@ import { UploaderComponent } from './File-Upload/uploader/uploader.component';
 import { TestFormComponent } from './form-advanced-05-with-custom-error/test-form/test-form.component';
 import { EncryptionMethodsComponent } from './Crypto/encryption-methods/encryption-methods.component';
 import { CanvasComponent } from './RxJs/Graphics/canvas/canvas.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -142,7 +143,12 @@ export const routes: Routes = [
       PermissionsService
     ]
   },
-  { path: 'lazy-loading', loadChildren: () => import('./lazy-loading/lazy-loading.module').then(m => m.LazyLoadingModule) }];
+  { path: 'lazy-loading', loadChildren: () => import('./lazy-loading/lazy-loading.module').then(m => m.LazyLoadingModule) },
+  {
+    path:'**',
+    component:PageNotFoundComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
