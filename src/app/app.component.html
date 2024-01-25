@@ -1,4 +1,22 @@
-<router-outlet>
-  <!-- <app-value-accessor-example></app-value-accessor-example> -->
-  <!-- <app-form-student-advanced></app-form-student-advanced> -->
-</router-outlet>
+<nav class="navbar navbar-expand navbar-light rd-light">
+  <!-- <a class="navbar-brand">{{ pageTitle }}</a> -->
+  <ul class="nav nav-pills">
+    <li>
+      <a class="nav-link" routerLink="/templateDrivenForm"
+        >Template Driven Forms</a
+      >
+    </li>
+    <li><a class="nav-link" routerLink="/reactiveForm1">Reactive Form 1</a></li>
+    <li><a class="nav-link" routerLink="/reactiveForm2">Reactive Form 2</a></li>
+    <li>
+      <a class="nav-link" routerLink="/fakeProductListings">Product Listing</a>
+    </li>
+    <li><a class="nav-link" routerLink="/upload">Uploader</a></li>
+    <li><a class="nav-link" routerLink="/draw">Canvas</a></li>
+    <li><a class="nav-link" routerLink="/login">Login</a></li>
+    <li><a class="nav-link" routerLink="/securePage">Secure Page</a></li>
+  </ul>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

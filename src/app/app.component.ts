@@ -8,5 +8,5 @@ import { LoggingService } from './services/logging.service';
   //providers:[LoggingService]
 })
 export class AppComponent {
-  title = 'angular-teranet-training-project';
+  pageTitle = 'Angular-Training-Material';
 }
