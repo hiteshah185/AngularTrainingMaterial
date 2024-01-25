@@ -31,6 +31,7 @@ import { EncryptionMethodsComponent } from './Crypto/encryption-methods/encrypti
 import { CanvasComponent } from './RxJs/Graphics/canvas/canvas.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { fakeProductGuard } from './Full-Stack-Site/fake-product.guard';
 
 
 
@@ -89,7 +90,7 @@ export const routes: Routes = [
     path: 'fakeProductListings', component: ListingPageComponent, pathMatch: 'full'
   },
   {
-    path: 'fakeProductListings/:id', component: ListingDetailPageComponent
+    path: 'fakeProductListings/:id', component: ListingDetailPageComponent, canActivate: [fakeProductGuard]
   },
   {
     path: 'contact/:id', component: ContactPageComponent
