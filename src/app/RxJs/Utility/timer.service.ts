@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject, timer } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TimerService {
   private timerSubject = new Subject<number>();
 

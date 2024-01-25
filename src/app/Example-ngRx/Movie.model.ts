@@ -16,3 +16,10 @@ export class Movie {
         this.userName = userName || 'Teraneter';
     }
 }
+export interface IMovie {
+    id: number;
+    name: string;
+    earning: number;
+    releaseDate: Date;
+    userName: string;
+}
