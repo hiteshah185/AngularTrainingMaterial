@@ -5,6 +5,7 @@ import { TimerComponent } from 'src/app/RxJs/Utility/timer/timer.component';
 import { CanvasComponent } from 'src/app/RxJs/Graphics/canvas/canvas.component';
 import { TimerService } from 'src/app/RxJs/Utility/timer.service';
 import { NotificationService } from 'src/app/services/notification.service';
+import { SelectAllDirective } from 'src/app/Custom-Directives/select-all.directive';
 
 const commonModules = [
   FormsModule,
@@ -12,16 +13,18 @@ const commonModules = [
 ]
 const commonComponent = [TimerComponent,
   CanvasComponent]
-
+const commonDirectives = [SelectAllDirective]
 
 @NgModule({
   declarations: [commonComponent],
   imports: [
-    commonModules
+    commonModules,
+    commonDirectives
   ],
   exports: [
     commonComponent,
-    commonModules
+    commonModules,
+    commonDirectives
   ],
   providers: [TimerService,
     NotificationService]
