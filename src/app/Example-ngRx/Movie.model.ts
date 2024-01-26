@@ -20,6 +20,6 @@ export interface IMovie {
     id: number;
     name: string;
     earning: number;
-    releaseDate: Date;
+    releaseDate?: Date;
     userName: string;
 }
