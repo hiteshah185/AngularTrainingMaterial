@@ -7,7 +7,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MovieDataService {
-  private readonly baseURL = 'api/movies';
+  private readonly baseURL = 'api/movie/movies';
 
   constructor(private _http: HttpClient) { }
   getMovies(): Observable<Movie[]> {
@@ -18,7 +18,7 @@ export class MovieDataService {
 
   addMovies(movie: Movie): Observable<Movie> {
     movie.id = 0;
-    return this._http.post<Movie>(this.baseURL, movie).pipe(tap(value=>console.log("Added Movie:",value)),
+    return this._http.post<Movie>(this.baseURL, movie).pipe(tap(value => console.log("Added Movie:", value)),
       catchError(this.handleError)
     );
   }
