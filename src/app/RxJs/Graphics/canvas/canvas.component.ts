@@ -2,11 +2,10 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular
 import { CommonModule } from '@angular/common';
 import { fromEvent } from 'rxjs';
 import { switchMap, takeUntil, pairwise } from 'rxjs/operators';
+import { TimerComponent } from '../../Utility/timer/timer.component';
 
 @Component({
   selector: 'app-canvas',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './canvas.component.html',
   styleUrls: ['./canvas.component.scss']
 })
@@ -79,6 +78,9 @@ export class CanvasComponent implements
       this.cx.lineTo(currentPos.x, currentPos.y);
       this.cx.stroke();
     }
+  }
+  onReset() {
+    this.cx?.clearRect(0, 0, this.width, this.height);
   }
 
 
