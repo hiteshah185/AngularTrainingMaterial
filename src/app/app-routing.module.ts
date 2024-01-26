@@ -1,3 +1,4 @@
+import { CourseModule } from './Example-ngRx/Courses/course/course.module';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { StudentFormBasicComponent } from './student-form-basic/student-form-basic.component';
@@ -39,24 +40,29 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: 'welcome',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'welcome',
-    component: WelcomeComponent
+    component: WelcomeComponent,
+    title: 'Welcome'
   },
   {
     path: "basicStudentForm",
-    component: StudentFormBasicComponent
+    component: StudentFormBasicComponent,
+    title: 'Basic Form'
   }, {
     path: "advanceStudentForm1",
     component: FormStudentAdvancedComponent,
+    title: 'Advance Form 1'
   }, {
     path: "advanceStudentForm2",
-    component: ValueAccessorExampleComponent
+    component: ValueAccessorExampleComponent,
+    title: 'Advance Form 2'
   }, {
     path: "advanceStudentForm3",
-    component: FormStudentAdvanced03Component
+    component: FormStudentAdvanced03Component,
+    title: 'Advance Form 3'
   },
   {
     path: 'formWithCustomError',
@@ -64,15 +70,19 @@ export const routes: Routes = [
   },
   {
     path: "templateDrivenForm",
-    component: SampleTemplateDrivenForm1Component
+    component: SampleTemplateDrivenForm1Component,
+    title: 'Template Form'
   },
   {
     path: "reactiveForm1",
-    component: SampleReactiveForm1Component
+    component: SampleReactiveForm1Component,
+    title: 'Reactive Form'
+
   },
   {
     path: "reactiveForm2",
-    component: SampleReactiveForm2Component
+    component: SampleReactiveForm2Component,
+    title: 'Reactive Form 2'
   },
   {
     path: "workingWithCustomServices",
@@ -87,10 +97,12 @@ export const routes: Routes = [
     component: FullStackSiteMainPageComponent,
   },
   {
-    path: 'fakeProductListings', component: ListingPageComponent, pathMatch: 'full'
+    path: 'fakeProductListings', component: ListingPageComponent, pathMatch: 'full',
+    title: 'Fake Product Listing'
   },
   {
-    path: 'fakeProductListings/:id', component: ListingDetailPageComponent, canActivate: [fakeProductGuard]
+    path: 'fakeProductListings/:id', component: ListingDetailPageComponent, canActivate: [fakeProductGuard],
+    title: 'Product'
   },
   {
     path: 'contact/:id', component: ContactPageComponent
@@ -101,7 +113,8 @@ export const routes: Routes = [
   },
   {
     path: 'encryption',
-    component: EncryptionMethodsComponent
+    component: EncryptionMethodsComponent,
+    title: 'CryptES'
   },
   {
     path: 'dynamicSearch',
@@ -117,7 +130,8 @@ export const routes: Routes = [
   },
   {
     path: 'upload',
-    component: UploaderComponent
+    component: UploaderComponent,
+    title: 'Uploader'
   },
   {
     path: 'ngRxHomePage',
@@ -128,11 +142,17 @@ export const routes: Routes = [
     loadChildren: () => import('./Example-ngRx/Add-Employee/employee.module').then(mod => mod.EmployeeModule)
   },
   {
+    path: 'ngRxCourses',
+    loadChildren: () => import('./Example-ngRx/Courses/course/course.module').then(mod => mod.CourseModule)
+  },
+  {
     path: 'draw',
-    component: CanvasComponent
+    component: CanvasComponent,
+    title: 'Draw'
   },
   {
     path: 'todo',
+    title: 'To-Do',
     loadComponent: () => import('./Example-Signal/todo/todo.component').then((it => it.TodoComponent))
   },
   {
@@ -157,6 +177,7 @@ export const routes: Routes = [
   { path: 'lazy-loading', loadChildren: () => import('./lazy-loading/lazy-loading.module').then(m => m.LazyLoadingModule) },
   {
     path: '**',
+    title: 'Page Not Found',
     component: PageNotFoundComponent
   }
 ];

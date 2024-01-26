@@ -44,6 +44,9 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { TestFormComponent } from './form-advanced-05-with-custom-error/test-form/test-form.component';
 import { ErrorFieldComponent } from './form-advanced-05-with-custom-error/error-field/error-field.component';
 import { SharedModule } from './Shared/shared/shared.module';
+import { appConfig } from './configs/appConfig';
+import { TitleStrategy } from '@angular/router';
+import { MyCustomPageTitleStrategyService } from './configs/my-custom-page-title-strategy.service';
 
 @NgModule({
   declarations: [
@@ -85,7 +88,8 @@ import { SharedModule } from './Shared/shared/shared.module';
   providers: [{ provide: 'LOG_SERVICE', useClass: LoggingService }, CustomErrorHandlerService,
   { provide: RequestCache, useClass: RequestCacheService },
     httpInterceptorsProviders,
-  { provide: ErrorHandler, useClass: CustomErrorHandlerService }],
+  { provide: ErrorHandler, useClass: CustomErrorHandlerService },
+  { provide: TitleStrategy, useClass: MyCustomPageTitleStrategyService }],
   //providers: [],
   bootstrap: [AppComponent]
 })
