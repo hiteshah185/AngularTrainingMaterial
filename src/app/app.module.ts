@@ -43,6 +43,7 @@ import { httpInterceptorsProviders } from '.';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { TestFormComponent } from './form-advanced-05-with-custom-error/test-form/test-form.component';
 import { ErrorFieldComponent } from './form-advanced-05-with-custom-error/error-field/error-field.component';
+import { SharedModule } from './Shared/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { ErrorFieldComponent } from './form-advanced-05-with-custom-error/error-
     PersonDataAdvancedComponent,
     StoreModule.forRoot({ count: counterReducer }),
     MaterialModule,
+    SharedModule
   ],
   providers: [{ provide: 'LOG_SERVICE', useClass: LoggingService }, CustomErrorHandlerService,
   { provide: RequestCache, useClass: RequestCacheService },
