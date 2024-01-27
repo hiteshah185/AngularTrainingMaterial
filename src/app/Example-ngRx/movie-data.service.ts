@@ -7,7 +7,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MovieDataService {
-  private readonly baseURL = 'api/movie/movies';
+  private readonly baseURL = 'assets/movies.json';
   movie$ = this._http.get<IMovie[]>(this.baseURL)
     .pipe(
       tap(data => console.log('Data From API:', JSON.stringify(data))),
