@@ -33,6 +33,7 @@ import { CanvasComponent } from './RxJs/Graphics/canvas/canvas.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { fakeProductGuard } from './Full-Stack-Site/fake-product.guard';
+import { MovieChartListComponent } from './RxJs/Asynchs/movie-chart-list/movie-chart-list.component';
 
 
 
@@ -149,6 +150,11 @@ export const routes: Routes = [
     path: 'draw',
     component: CanvasComponent,
     title: 'Draw'
+  },
+  {
+    path: 'movieChart',
+    component: MovieChartListComponent,
+    title: 'Movie Chart'
   },
   {
     path: 'todo',

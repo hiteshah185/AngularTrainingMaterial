@@ -47,6 +47,7 @@ import { SharedModule } from './Shared/shared/shared.module';
 import { appConfig } from './configs/appConfig';
 import { TitleStrategy } from '@angular/router';
 import { MyCustomPageTitleStrategyService } from './configs/my-custom-page-title-strategy.service';
+import { MovieChartListComponent } from './RxJs/Asynchs/movie-chart-list/movie-chart-list.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { MyCustomPageTitleStrategyService } from './configs/my-custom-page-title
     SpinnerComponent,
     TestFormComponent,
     ErrorFieldComponent,
+    MovieChartListComponent
   ],
   imports: [
     BrowserModule,
