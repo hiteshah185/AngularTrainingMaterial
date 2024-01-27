@@ -10,7 +10,7 @@ export class MovieDataService {
   private readonly baseURL = 'assets/movies.json';
   movie$ = this._http.get<IMovie[]>(this.baseURL)
     .pipe(
-      tap(data => console.log('Data From API:', JSON.stringify(data))),
+      // tap(data => console.log('Data From API:', JSON.stringify(data))),
       catchError(this.handleError)
     )
 
