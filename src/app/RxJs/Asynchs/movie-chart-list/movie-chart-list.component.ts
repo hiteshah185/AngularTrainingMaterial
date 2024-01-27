@@ -13,6 +13,7 @@ import { EMPTY, catchError } from 'rxjs';
 export class MovieChartListComponent {
   pageTitle: string = 'Movies of 2023';
   errorMessage: string = '';
+  showCelebrity: boolean = false;
 
   //Declarative way of gathering data
   movies$ = this._movieDataService.movie$
@@ -22,10 +23,16 @@ export class MovieChartListComponent {
         return EMPTY
       })
     );
+  celebrity$ = this._movieDataService.celebrity$.pipe(
+    catchError(err => {
+      this.errorMessage = err;
+      return EMPTY
+    }));
   constructor(
     private _movieDataService: MovieDataService
-  ) {
-
+  ) { }
+  showCelebrityTable() {
+    this.showCelebrity = !this.showCelebrity;
   }
 
 }

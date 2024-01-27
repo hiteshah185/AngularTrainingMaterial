@@ -22,6 +22,25 @@
         </tr>
       </tbody>
     </table>
+    <div *ngIf="showCelebrity">
+      <table
+        class="table mb-0"
+        *ngIf="celebrity$ | async as celebrities; else noSupplyFromAPI"
+      >
+        <thead>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Debut</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let celebrity of celebrities">
+            <td>{{ celebrity.name }}</td>
+            <td>{{ celebrity.description }}</td>
+            <td>{{ celebrity.debut }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <ng-template #noSupplyFromAPI>
     <div class="alert alert-warning">No data from API.</div>
@@ -30,3 +49,6 @@
 <div class="alert alert-danger" *ngIf="errorMessage">
   {{ errorMessage }}
 </div>
+<button (click)="showCelebrityTable()" class="btn btn-primary">
+  Show Celebrity Table
+</button>
