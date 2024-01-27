@@ -11,6 +11,20 @@ export class MovieDataService {
   movie$ = this._http.get<IMovie[]>(this.baseURL)
     .pipe(
       // tap(data => console.log('Data From API:', JSON.stringify(data))),
+      // map(movies => movies.map(m => ({
+      //   name: m.name,
+      //   earning: m.earning ? m.earning * 1 / 100000 : 0,
+      //   userName: m.userName
+      // } as IMovie ))),
+
+      //Spread Operator
+      map(movieArray => movieArray.map(
+        movie => ({
+          ...movie,
+          earning: movie.earning ? movie.earning / 10000 : 0
+        }
+        ) as IMovie
+      )),
       catchError(this.handleError)
     )
 
