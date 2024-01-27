@@ -29,7 +29,8 @@ export class MovieDataService {
       catchError(this.handleError)
     )
   celebrity$ = this._http.get<ICelebrity[]>(this.celebrityURL)
-    .pipe(tap(c => console.log(`Data from celebrity API:`, JSON.stringify(c))),
+    .pipe(
+      // tap(c => console.log(`Data from celebrity API:`, JSON.stringify(c))),
       catchError(this.handleError));
 
   constructor(private _http: HttpClient) { }

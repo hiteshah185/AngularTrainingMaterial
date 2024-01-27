@@ -1,54 +1,85 @@
-<div class="card">
-  <div class="card-header">
-    {{ pageTitle }}
-  </div>
-  <div class="table-responsive">
-    <table
-      class="table mb-0"
-      *ngIf="movies$ | async as movies; else noSupplyFromAPI"
-    >
-      <thead>
-        <th>Name</th>
-        <th>Earning</th>
-        <!-- <th>Release Date</th> -->
-        <th>Entertainment House</th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let movie of movies">
-          <td>{{ movie.name }}</td>
-          <td>{{ movie.earning }}</td>
-          <!-- <td>{{ movie.releaseDate }}</td> -->
-          <td>{{ movie.userName }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <div *ngIf="showCelebrity">
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Movie Sample Data</h5>
+      <p class="card-text">
+        This is an example of observing(subscribe) an observable using 'async'
+        pipe and populate the table.
+      </p>
       <table
         class="table mb-0"
-        *ngIf="celebrity$ | async as celebrities; else noSupplyFromAPI"
+        *ngIf="movies$ | async as movies; else noSupplyFromAPI"
       >
         <thead>
           <th>Name</th>
-          <th>Description</th>
-          <th>Debut</th>
+          <th>Earning</th>
+          <!-- <th>Release Date</th> -->
+          <th>Entertainment House</th>
         </thead>
         <tbody>
-          <tr *ngFor="let celebrity of celebrities">
-            <td>{{ celebrity.name }}</td>
-            <td>{{ celebrity.description }}</td>
-            <td>{{ celebrity.debut }}</td>
+          <tr *ngFor="let movie of movies">
+            <td>{{ movie.name }}</td>
+            <td>{{ movie.earning }}</td>
+            <!-- <td>{{ movie.releaseDate }}</td> -->
+            <td>{{ movie.userName }}</td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">
+        <a href="https://rxjs.dev/guide/observable"> Observables </a>
+      </small>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Combine Table</h5>
+      <div *ngIf="showCelebrity">
+        <p class="card-text">
+          This table shows the combined values from movies$ and celebrity$
+          observables using 'combineLatest' operator.
+        </p>
+        <table
+          class="table mb-0"
+          *ngIf="
+            movieWithCelebrity$ | async as MovieWithcelebrities;
+            else noSupplyFromAPI
+          "
+        >
+          <thead>
+            <th>Name</th>
+            <th>Celebrity</th>
+            <th>Entertainment</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let movie of MovieWithcelebrities">
+              <td>{{ movie.name }}</td>
+              <td>{{ movie.celebrity }}</td>
+              <td>{{ movie.userName }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">
+        <a
+          href="https://www.learnrxjs.io/learn-rxjs/operators/combination/combinelatest"
+          >combineLatest</a
+        >
+      </small>
     </div>
   </div>
   <ng-template #noSupplyFromAPI>
     <div class="alert alert-warning">No data from API.</div>
   </ng-template>
 </div>
+<br />
+<button (click)="showCelebrityTable()" class="btn btn-primary">
+  Show Movie + Celebrity Table
+</button>
+
 <div class="alert alert-danger" *ngIf="errorMessage">
   {{ errorMessage }}
 </div>
-<button (click)="showCelebrityTable()" class="btn btn-primary">
-  Show Celebrity Table
-</button>

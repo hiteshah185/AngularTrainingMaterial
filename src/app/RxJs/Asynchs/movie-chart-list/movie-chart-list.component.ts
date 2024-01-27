@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IMovie } from 'src/app/Example-ngRx/Movie.model';
+import { ICelebrity, IMovie } from 'src/app/Example-ngRx/Movie.model';
 import { MovieDataService } from 'src/app/Example-ngRx/movie-data.service';
-import { EMPTY, catchError } from 'rxjs';
+import { EMPTY, Observable, catchError, combineLatest, map } from 'rxjs';
 
 @Component({
   selector: 'app-movie-chart-list',
@@ -23,11 +23,20 @@ export class MovieChartListComponent {
         return EMPTY
       })
     );
-  celebrity$ = this._movieDataService.celebrity$.pipe(
+  celebrity$: Observable<ICelebrity[]> = this._movieDataService.celebrity$.pipe(
     catchError(err => {
       this.errorMessage = err;
       return EMPTY
     }));
+
+  movieWithCelebrity$ = combineLatest([this.movies$, this.celebrity$])
+    .pipe(
+      map(([movies, celebrities]) => movies.map(movie => ({
+        ...movie,
+        celebrity: celebrities.find(c => movie.celebrity == c.id)?.name,
+      }) as IMovie))
+    );
+
   constructor(
     private _movieDataService: MovieDataService
   ) { }
