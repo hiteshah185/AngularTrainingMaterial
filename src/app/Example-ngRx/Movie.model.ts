@@ -22,4 +22,15 @@ export interface IMovie {
     earning: number;
     releaseDate?: Date;
     userName: string;
+    celebrity?: number
+}
+export interface ICelebrity {
+    id: number;
+    name: string;
+    description?: string;
+    nickname?: string;
+    awards?: string[];
+    filmography?: string[];
+    debut?: number;
+    productionCompany?: string
 }

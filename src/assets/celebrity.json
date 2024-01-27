@@ -1,0 +1,117 @@
+[
+    {
+        "id": 100,
+        "name": "Shah Rukh Khan",
+        "nickname": "King Khan",
+        "filmography": [
+          "Dilwale Dulhania Le Jayenge",
+          "Kuch Kuch Hota Hai",
+          "Chak De! India",
+          "My Name Is Khan",
+          "Pathaan"
+        ],
+        "awards": [
+          "14 Filmfare Awards",
+          "Padma Shri award",
+          "Legion of Honour (France)"
+        ],
+        "debut": 1988
+      },      
+    {
+        "id": 101,
+        "name": "Deepika Padukone",
+        "description": "Renowned actress known for her strong performances and diverse filmography.",
+        "awards": [
+          "3 Filmfare Awards for Best Actress",
+          "Padma Shri award",
+          "Time 100 Most Influential People 2018"
+        ],
+        "debut": 2007,
+        "filmography": [
+          "Om Shanti Om",
+          "Bajirao Mastani",
+          "Piku",
+          "Padmaavat",
+          "Gehraiyaan"
+        ]
+      },
+      {
+        "id": 102,
+        "name": "Ranbir Kapoor",
+        "filmography": [
+          "Saawariya",
+          "Rockstar",
+          "Barfi!",
+          "Yeh Jawaani Hai Deewani",
+          "Sanju"
+        ],
+        "awards": [
+          "4 Filmfare Awards",
+          "IIFA Award for Best Actor",
+          "National Film Award for Best Actor"
+        ],
+        "debut": 2007,
+        "description": "Kapoor film family"
+      },      
+      {
+        "id": 103,
+        "name": "Amitabh Bachchan",
+        "description": "Legendary actor known for his powerful voice and iconic roles.",
+        "nicknames": [
+          "Big B",
+          "Shahenshah of Bollywood"
+        ],
+        "awards": [
+          "4 National Film Awards for Best Actor",
+          "15 Filmfare Awards for Best Actor",
+          "Legion of Honour (France)"
+        ],
+        "debut": 1969,
+        "filmography": [
+          "Sholay",
+          "Deewar",
+          "Black",
+          "Piku",
+          "Badla"
+        ]
+      },
+      {
+        "id": 104,
+        "name": "Aamir Khan",
+        "description": "Perfectionist actor known for his social message films and experimental roles.",
+        "filmography": [
+          "Lagaan",
+          "Taare Zameen Par",
+          "3 Idiots",
+          "Dangal",
+          "PK"
+        ],
+        "awards": [
+          "4 National Film Awards for Best Actor",
+          "8 Filmfare Awards for Best Actor",
+          "Padma Bhushan award"
+        ],
+        "debut": 1984,
+        "productionCompany": "Aamir Khan Productions"
+      },
+      {
+        "id": 105,
+        "name": "Sunny Deol",
+        "filmography": [
+          "Gadar: Ek Prem Katha",
+          "Border",
+          "Dharmendra",
+          "Singh is Kinng",
+          "The Hero: Love Story of a Spy"
+        ],
+        "awards": [
+          "Filmfare Award for Best Debut",
+          "National Film Award for Best Actor",
+          "IIFA Award for Best Performance in a Negative Role"
+        ],
+        "debut": 1990,
+        "description": "Deol film family"
+      }
+      
+                    
+  ]

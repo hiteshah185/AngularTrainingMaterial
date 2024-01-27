@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, catchError, tap, throwError, map } from 'rxjs';
-import { IMovie, Movie } from './Movie.model';
+import { ICelebrity, IMovie, Movie } from './Movie.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
@@ -8,6 +8,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 export class MovieDataService {
   private readonly baseURL = 'assets/movies.json';
+  private readonly celebrityURL = 'assets/celebrity.json';
   movie$ = this._http.get<IMovie[]>(this.baseURL)
     .pipe(
       // tap(data => console.log('Data From API:', JSON.stringify(data))),
@@ -27,6 +28,9 @@ export class MovieDataService {
       )),
       catchError(this.handleError)
     )
+  celebrity$ = this._http.get<ICelebrity[]>(this.celebrityURL)
+    .pipe(tap(c => console.log(`Data from celebrity API:`, JSON.stringify(c))),
+      catchError(this.handleError));
 
   constructor(private _http: HttpClient) { }
   getMovies(): Observable<Movie[]> {
