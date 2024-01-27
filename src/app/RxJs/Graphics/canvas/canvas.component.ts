@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { fromEvent } from 'rxjs';
-import { switchMap, takeUntil, pairwise } from 'rxjs/operators';
+import { Observable, from, fromEvent, interval, of } from 'rxjs';
+import { switchMap, takeUntil, pairwise, map, take } from 'rxjs/operators';
 import { TimerComponent } from '../../Utility/timer/timer.component';
 
 @Component({
@@ -83,8 +83,45 @@ export class CanvasComponent implements
     this.cx?.clearRect(0, 0, this.width, this.height);
   }
 
+  onCreate() {
+    const tree$ = of('apple 1', 'apple 2'); //emits an object
 
+    const harvest$ = from(['Apple 1', 'Apple 2']); //emits within array
+    const apples = ['Apple 1', 'Apple 2']
+    const harvest2$ = of(...apples); //emits each apples
+    // Create the apple conveyor belt (Observable)
+    const appleBelt$ = new Observable(subscriber => {
+      // Emit apples onto the belt
+      subscriber.next('Apple 1');  // Place Apple 1 on the belt
+      subscriber.next('Apple 2');  // Place Apple 2 on the belt
 
+      // Oops! Something went wrong
+      subscriber.error('Error 1'); // Belt malfunction
+
+      // Fix the issue and continue
+      subscriber.next('Apple 3');  // Place Apple 3 on the belt
+
+      // No more apples to send
+      subscriber.complete();        // Turn off the belt
+    });
+
+    // Set up a basket to catch apples (observer)
+    const appleBasket = {
+      next: (apple: any) => console.log(`Got a fresh apple: ${apple}`), // Worker puts apples in the basket
+      error: (error: any) => console.error(`Problem on the belt: ${error}`), // Worker alerts about issues
+      complete: () => console.log('Belt stopped. No more apples expected.') // Worker announces belt's end
+    };
+
+    // Start watching the basket for apples (subscribe)
+    const appleSubscription = appleBelt$.subscribe(appleBasket);
+    appleSubscription.unsubscribe();
+    //const num = interval(1000).subscribe(console.log);
+
+    const rxOperator = of(3, 6, 9, 12).pipe(
+      map(v => v * 2),
+      take(2)
+    ).subscribe(value => console.log(value));
+  }
 
 
 
