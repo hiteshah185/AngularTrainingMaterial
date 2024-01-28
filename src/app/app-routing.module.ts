@@ -34,6 +34,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { WelcomeComponent } from './welcome/welcome.component';
 import { fakeProductGuard } from './Full-Stack-Site/fake-product.guard';
 import { MovieChartListComponent } from './RxJs/Asynchs/movie-chart-list/movie-chart-list.component';
+import { CelebrityCollectionComponent } from './RxJs/Asynchs/celebrity-collection/celebrity-collection.component';
 
 
 
@@ -155,6 +156,11 @@ export const routes: Routes = [
     path: 'movieChart',
     component: MovieChartListComponent,
     title: 'Movie Chart'
+  },
+  {
+    path: 'celebrity',
+    component: CelebrityCollectionComponent,
+    title: 'Explore Celebrity'
   },
   {
     path: 'todo',
