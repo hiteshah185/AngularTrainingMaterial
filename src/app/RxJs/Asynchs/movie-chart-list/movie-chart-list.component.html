@@ -32,10 +32,38 @@
       </small>
     </div>
   </div>
+
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Combine Table</h5>
       <div *ngIf="showCelebrity">
+        <div *ngIf="celebrity$ | async as celebrities" class="container">
+          <div class="row justify-content-between">
+            <div class="col-3">
+              <select
+                class="form-control"
+                (change)="onSelected($any($event.target).value)"
+              >
+                <option value="0">- Display All -</option>
+                <option
+                  *ngFor="let celebrity of celebrities"
+                  [value]="celebrity.name"
+                >
+                  {{ celebrity.name }}
+                </option>
+              </select>
+            </div>
+            <div class="col-2">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                (click)="onAdd()"
+              >
+                Add a Movie
+              </button>
+            </div>
+          </div>
+        </div>
         <p class="card-text">
           This table shows the combined values from movies$ and celebrity$
           observables using 'combineLatest' operator.

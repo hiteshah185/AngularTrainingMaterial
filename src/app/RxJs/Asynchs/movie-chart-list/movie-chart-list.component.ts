@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ICelebrity, IMovie } from 'src/app/Example-ngRx/Movie.model';
 import { MovieDataService } from 'src/app/Example-ngRx/movie-data.service';
-import { EMPTY, Observable, catchError, combineLatest, map } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, catchError, combineLatest, map } from 'rxjs';
 
 @Component({
   selector: 'app-movie-chart-list',
@@ -30,6 +30,7 @@ export class MovieChartListComponent {
     }));
 
   movieWithCelebrity$!: Observable<IMovie[]>;
+  private selectedCelebrity = new BehaviorSubject<string>('0');
 
   constructor(
     private _movieDataService: MovieDataService
@@ -38,14 +39,35 @@ export class MovieChartListComponent {
   showCelebrityTable() {
     this.showCelebrity = !this.showCelebrity;
     if (this.showCelebrity) {
-      this.movieWithCelebrity$ = combineLatest([this.movies$, this.celebrity$])
+      this.combineCelebrityAndMovie();
+    }
+  }
+  onSelected(celebrityName: string) {
+    if (celebrityName.toString() == "0") {
+      this.combineCelebrityAndMovie();
+    } else {
+      this.selectedCelebrity.next(celebrityName);
+      this.movieWithCelebrity$ = combineLatest([this.movieWithCelebrity$, this.selectedCelebrity.asObservable()])
         .pipe(
-          map(([movies, celebrities]) => movies.map(movie => ({
-            ...movie,
-            celebrity: celebrities.find(c => movie.celebrity == c.id)?.name,
-          }) as IMovie))
+          map(([movies, selectedCelebrity]) => movies.filter(movie => selectedCelebrity ? movie.celebrity?.toString() === selectedCelebrity : true)),
+          catchError(err => {
+            this.errorMessage = err;
+            return EMPTY;
+          })
         );
     }
+  }
+  combineCelebrityAndMovie() {
+    this.movieWithCelebrity$ = combineLatest([this.movies$, this.celebrity$])
+      .pipe(
+        map(([movies, celebrities]) => movies.map(movie => ({
+          ...movie,
+          celebrity: celebrities.find(c => movie.celebrity == c.id)?.name,
+        }) as IMovie))
+      );
+  }
+
+  onAdd() {
   }
 
 }
