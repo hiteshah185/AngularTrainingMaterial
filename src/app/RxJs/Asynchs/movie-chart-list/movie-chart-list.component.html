@@ -71,7 +71,7 @@
         <table
           class="table mb-0"
           *ngIf="
-            movieWithCelebrity$ | async as MovieWithcelebrities;
+            movieWithCelebrity$ | async as MovieWithCelebrities;
             else noSupplyFromAPI
           "
         >
@@ -81,7 +81,11 @@
             <th>Entertainment House</th>
           </thead>
           <tbody>
-            <tr *ngFor="let movie of MovieWithcelebrities">
+            <div *ngIf="MovieWithCelebrities.length == 0" class="no-result">
+              <br />
+              -- No results --
+            </div>
+            <tr *ngFor="let movie of MovieWithCelebrities">
               <td>{{ movie.name }}</td>
               <td>{{ movie.celebrity }}</td>
               <td>{{ movie.userName }}</td>
