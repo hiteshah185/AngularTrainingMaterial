@@ -29,19 +29,23 @@ export class MovieChartListComponent {
       return EMPTY
     }));
 
-  movieWithCelebrity$ = combineLatest([this.movies$, this.celebrity$])
-    .pipe(
-      map(([movies, celebrities]) => movies.map(movie => ({
-        ...movie,
-        celebrity: celebrities.find(c => movie.celebrity == c.id)?.name,
-      }) as IMovie))
-    );
+  movieWithCelebrity$!: Observable<IMovie[]>;
 
   constructor(
     private _movieDataService: MovieDataService
   ) { }
+
   showCelebrityTable() {
     this.showCelebrity = !this.showCelebrity;
+    if (this.showCelebrity) {
+      this.movieWithCelebrity$ = combineLatest([this.movies$, this.celebrity$])
+        .pipe(
+          map(([movies, celebrities]) => movies.map(movie => ({
+            ...movie,
+            celebrity: celebrities.find(c => movie.celebrity == c.id)?.name,
+          }) as IMovie))
+        );
+    }
   }
 
 }
