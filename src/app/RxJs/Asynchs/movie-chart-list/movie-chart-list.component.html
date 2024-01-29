@@ -19,7 +19,7 @@
         <tbody>
           <tr *ngFor="let movie of movies">
             <td>{{ movie.name }}</td>
-            <td>{{ movie.earning }}</td>
+            <td>{{ movie.earning | currency : "INR" }}</td>
             <!-- <td>{{ movie.releaseDate }}</td> -->
             <td>{{ movie.userName }}</td>
           </tr>
