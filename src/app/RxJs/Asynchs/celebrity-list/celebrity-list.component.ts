@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { EMPTY, Observable, Subject, catchError } from 'rxjs';
 import { MovieDataService } from 'src/app/Example-ngRx/movie-data.service';
 import { ICelebrity } from 'src/app/Example-ngRx/Movie.model';
@@ -7,7 +6,8 @@ import { ICelebrity } from 'src/app/Example-ngRx/Movie.model';
 @Component({
   selector: 'app-celebrity-list',
   templateUrl: './celebrity-list.component.html',
-  styleUrls: ['./celebrity-list.component.scss']
+  styleUrls: ['./celebrity-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CelebrityListComponent {
   pageTitle: string = 'Celebrity List';

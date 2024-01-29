@@ -50,6 +50,7 @@ import { MyCustomPageTitleStrategyService } from './configs/my-custom-page-title
 import { MovieChartListComponent } from './RxJs/Asynchs/movie-chart-list/movie-chart-list.component';
 import { CelebrityCollectionComponent } from './RxJs/Asynchs/celebrity-collection/celebrity-collection.component';
 import { CelebrityListComponent } from './RxJs/Asynchs/celebrity-list/celebrity-list.component';
+import { CelebrityDetailComponent } from './RxJs/Asynchs/celebrity-detail/celebrity-detail.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { CelebrityListComponent } from './RxJs/Asynchs/celebrity-list/celebrity-
     ErrorFieldComponent,
     MovieChartListComponent,
     CelebrityCollectionComponent,
-    CelebrityListComponent
+    CelebrityListComponent,
+    CelebrityDetailComponent
   ],
   imports: [
     BrowserModule,
