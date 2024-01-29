@@ -4,6 +4,7 @@ import { ICelebrity, IMovie } from 'src/app/Example-ngRx/Movie.model';
 import { MovieDataService } from 'src/app/Example-ngRx/movie-data.service';
 import { BehaviorSubject, EMPTY, Observable, catchError, combineLatest, map, shareReplay } from 'rxjs';
 import { NotificationService } from 'src/app/services/notification.service';
+import { SupplierService } from '../supplier.service';
 
 @Component({
   selector: 'app-movie-chart-list',
@@ -36,7 +37,8 @@ export class MovieChartListComponent {
 
   constructor(
     private _movieDataService: MovieDataService,
-    private _notificationService: NotificationService
+    private _notificationService: NotificationService,
+    private _supplierService: SupplierService
   ) { }
 
   showCelebrityTable() {
