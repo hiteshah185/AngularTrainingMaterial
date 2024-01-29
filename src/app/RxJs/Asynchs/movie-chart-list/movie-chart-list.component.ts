@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ICelebrity, IMovie } from 'src/app/Example-ngRx/Movie.model';
 import { MovieDataService } from 'src/app/Example-ngRx/movie-data.service';
 import { BehaviorSubject, EMPTY, Observable, catchError, combineLatest, map } from 'rxjs';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-movie-chart-list',
@@ -14,9 +15,10 @@ export class MovieChartListComponent {
   pageTitle: string = 'Movies of 2023';
   errorMessage: string = '';
   showCelebrity: boolean = false;
+  private count: number = 0;
 
   //Declarative way of gathering data
-  movies$ = this._movieDataService.movie$
+  movies$ = this._movieDataService.moviesWithInserted$
     .pipe(
       catchError(err => {
         this.errorMessage = err;
@@ -33,7 +35,8 @@ export class MovieChartListComponent {
   private selectedCelebrity = new BehaviorSubject<string>('0');
 
   constructor(
-    private _movieDataService: MovieDataService
+    private _movieDataService: MovieDataService,
+    private _notificationService: NotificationService
   ) { }
 
   showCelebrityTable() {
@@ -68,6 +71,12 @@ export class MovieChartListComponent {
   }
 
   onAdd() {
+    if (this.count < 1) {
+      this.count++
+      this._movieDataService.addAFakeMovie();
+    } else {
+      this._notificationService.warn("Cannot add more than 1 fake movie.")
+    }
   }
 
 }
