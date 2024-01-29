@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { EMPTY, Subject, catchError, map } from 'rxjs';
+
+import { EMPTY, Subject, catchError, combineLatest, filter, map } from 'rxjs';
 import { MovieDataService } from 'src/app/Example-ngRx/movie-data.service';
 import { ICelebrity } from 'src/app/Example-ngRx/Movie.model';
 
@@ -25,6 +25,15 @@ export class CelebrityDetailComponent {
   pageTitle$ = this.celebrity$.pipe(
     map(celebrity => celebrity ? `Celebrity Detail for: ${celebrity.name} ` : null)
   )
+
+  viewModel$ = combineLatest([
+    this.celebrity$,
+    this.pageTitle$
+  ]).pipe(
+    filter(([celebrity]) => Boolean(celebrity)),
+    map(([celebrity, title]) => ({ celebrity, title }))
+  )
+
   constructor(
     private _movieDataService: MovieDataService
   ) { }
