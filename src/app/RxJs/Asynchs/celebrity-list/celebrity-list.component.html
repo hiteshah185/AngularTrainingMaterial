@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+  <div class="card-body" *ngIf="celebrity$ | async as Celebrities">
+    <div class="list-group">
+      <button
+        type="button"
+        class="list-group-item"
+        *ngFor="let celebrity of Celebrities"
+        [ngClass]="{
+          active: celebrity?.id === (selectedCelebrity$ | async)?.id
+        }"
+        (click)="onSelectedCelebrity(celebrity.id)"
+      >
+        {{ celebrity.name }}(Debut:{{ celebrity?.debut }})
+      </button>
+    </div>
+  </div>
+</div>
+<div class="alert alert-danger" *ngIf="errorMessage$ | async as errorMessage">
+  {{ errorMessage }}
+</div>
