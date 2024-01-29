@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError, tap, throwError, map, BehaviorSubject, combineLatest, Subject, merge, scan, shareReplay } from 'rxjs';
+import { Observable, catchError, tap, throwError, map, BehaviorSubject, combineLatest, Subject, merge, scan, shareReplay, filter, switchMap, forkJoin } from 'rxjs';
 import { ICelebrity, IMovie, Movie } from './Movie.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
@@ -43,6 +43,18 @@ export class MovieDataService {
         celebrities.find(celebrity => celebrity.id === selectedCelebrity)),
       tap(celebrity => { console.log('Selected Celebrity:', celebrity); })
     );
+
+  // selectedMovieCelebrityUsingJIT$ = this.movie$.pipe(
+  //   filter(movie => Boolean(movie)),
+  //   switchMap(selectedMovie => {
+  //     if (selectedMovie?.celebrity) {
+  //       return forkJoin(selectedMovie?.celebrity.map(celebrityId =>
+  //         this._http.get<ICelebrity>(`${this.baseURL}/${celebrityId}`)))
+  //     } else {
+  //       return of([]);
+  //     }
+  //   }),tap(cele=>console.log('Movie Celebrity:',JSON.stringify(cele)))
+  // );
 
   private insertedMovie = new Subject<IMovie>();
   //public insertedMovie$ = this.insertedMovie.asObservable();
