@@ -48,6 +48,8 @@ import { appConfig } from './configs/appConfig';
 import { TitleStrategy } from '@angular/router';
 import { MyCustomPageTitleStrategyService } from './configs/my-custom-page-title-strategy.service';
 import { MovieChartListComponent } from './RxJs/Asynchs/movie-chart-list/movie-chart-list.component';
+import { CelebrityCollectionComponent } from './RxJs/Asynchs/celebrity-collection/celebrity-collection.component';
+import { CelebrityListComponent } from './RxJs/Asynchs/celebrity-list/celebrity-list.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { MovieChartListComponent } from './RxJs/Asynchs/movie-chart-list/movie-c
     SpinnerComponent,
     TestFormComponent,
     ErrorFieldComponent,
-    MovieChartListComponent
+    MovieChartListComponent,
+    CelebrityCollectionComponent,
+    CelebrityListComponent
   ],
   imports: [
     BrowserModule,
