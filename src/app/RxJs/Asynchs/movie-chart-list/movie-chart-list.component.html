@@ -32,24 +32,27 @@
       </small>
     </div>
   </div>
-
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Combine Table</h5>
-      <div *ngIf="showCelebrity">
+  <div *ngIf="isLoading$ | async; else displayTableOfMovies">
+    <div>Loading...</div>
+  </div>
+  <ng-template #displayTableOfMovies> 
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Combine Table</h5>
+        <div *ngIf="showCelebrity">
         <div *ngIf="celebrity$ | async as celebrities" class="container">
           <div class="row justify-content-between">
             <div class="col-3">
               <select
-                class="form-control"
-                (change)="onSelected($any($event.target).value)"
+              class="form-control"
+              (change)="onSelected($any($event.target).value)"
               >
-                <option value="0">- Display All -</option>
-                <option
-                  *ngFor="let celebrity of celebrities"
-                  [value]="celebrity.name"
-                >
-                  {{ celebrity.name }}
+              <option value="0">- Display All -</option>
+              <option
+              *ngFor="let celebrity of celebrities"
+              [value]="celebrity.name"
+              >
+              {{ celebrity.name }}
                 </option>
               </select>
             </div>
@@ -59,50 +62,58 @@
                 class="btn btn-outline-secondary"
                 (click)="onAdd()"
               >
-                Add a Movie
+                Add
               </button>
-            </div>
+              <button
+              type="button"
+              class="btn btn-outline-secondary"
+              (click)="onRefresh()"
+              >
+              Refresh
+            </button>
           </div>
         </div>
-        <p class="card-text">
-          This table shows the combined values from movies$ and celebrity$
-          observables using 'combineLatest' operator.
-        </p>
-        <table
-          class="table mb-0"
-          *ngIf="
+      </div>
+      <p class="card-text">
+        This table shows the combined values from movies$ and celebrity$
+        observables using 'combineLatest' operator.
+      </p>
+      <table
+      class="table mb-0"
+      *ngIf="
             movieWithCelebrity$ | async as MovieWithCelebrities;
             else noSupplyFromAPI
-          "
+            "
         >
-          <thead>
-            <th>Name</th>
-            <th>Celebrity</th>
-            <th>Entertainment House</th>
-          </thead>
-          <tbody>
-            <div *ngIf="MovieWithCelebrities.length == 0" class="no-result">
-              <br />
-              -- No results --
-            </div>
-            <tr *ngFor="let movie of MovieWithCelebrities">
-              <td>{{ movie.name }}</td>
-              <td>{{ movie.celebrity }}</td>
-              <td>{{ movie.userName }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">
-        <a
-          href="https://www.learnrxjs.io/learn-rxjs/operators/combination/combinelatest"
-          >combineLatest</a
-        >
-      </small>
+        <thead>
+          <th>Name</th>
+          <th>Celebrity</th>
+          <th>Entertainment House</th>
+        </thead>
+        <tbody>
+          <div *ngIf="MovieWithCelebrities.length == 0" class="no-result">
+            <br />
+            -- No results --
+          </div>
+          <tr *ngFor="let movie of MovieWithCelebrities">
+            <td>{{ movie.name }}</td>
+            <td>{{ movie.celebrity }}</td>
+            <td>{{ movie.userName }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+  <div class="card-footer">
+    <small class="text-muted">
+      <a
+      href="https://www.learnrxjs.io/learn-rxjs/operators/combination/combinelatest"
+      >combineLatest</a
+      >
+    </small>
+  </div>
+</div>
+</ng-template>
   <ng-template #noSupplyFromAPI>
     <div class="alert alert-warning">No data from API.</div>
   </ng-template>

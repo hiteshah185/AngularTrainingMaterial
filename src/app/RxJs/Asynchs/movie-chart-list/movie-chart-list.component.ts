@@ -17,6 +17,7 @@ export class MovieChartListComponent {
   errorMessage: string = '';
   showCelebrity: boolean = false;
   private count: number = 0;
+  isLoading$ = this._movieDataService.isLoading$;
 
   //Declarative way of gathering data
   movies$ = this._movieDataService.moviesWithInserted$
@@ -80,6 +81,9 @@ export class MovieChartListComponent {
     } else {
       this._notificationService.warn("Cannot add more than 1 fake movie.")
     }
+  }
+  onRefresh() {
+    this._movieDataService.refreshMovieData();
   }
 
 }
