@@ -1,0 +1,37 @@
+<div class="card" *ngIf="celebrity$ | async as Celebrity">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Name:</div>
+      <div class="col-md-6">{{ Celebrity.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Description:</div>
+      <div class="col-md-6">{{ Celebrity.description }}</div>
+    </div>
+    <div *ngIf="Celebrity.awards" class="row">
+      <div class="col-md-2">Awards:</div>
+      <div *ngFor="let award of Celebrity.awards" class="col-md">
+        <ul>
+          <li>{{ award }}</li>
+        </ul>
+      </div>
+    </div>
+    <div *ngIf="Celebrity.filmography" class="row">
+      <div class="col-md-2">Filmography:</div>
+      <div *ngFor="let film of Celebrity.filmography" class="col-md">
+        <ul>
+          <li>
+            {{ film }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Debut year:</div>
+      <div class="col-md-6">{{ Celebrity.debut }}</div>
+    </div>
+  </div>
+</div>
