@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ICelebrity, IMovie } from 'src/app/Example-ngRx/Movie.model';
 import { MovieDataService } from 'src/app/Example-ngRx/movie-data.service';
-import { BehaviorSubject, EMPTY, Observable, catchError, combineLatest, map } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, catchError, combineLatest, map, shareReplay } from 'rxjs';
 import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
@@ -66,7 +66,8 @@ export class MovieChartListComponent {
         map(([movies, celebrities]) => movies.map(movie => ({
           ...movie,
           celebrity: celebrities.find(c => movie.celebrity == c.id)?.name,
-        }) as IMovie))
+        }) as IMovie)),
+        shareReplay(1)
       );
   }
 

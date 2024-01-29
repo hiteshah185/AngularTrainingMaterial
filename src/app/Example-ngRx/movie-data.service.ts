@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError, tap, throwError, map, BehaviorSubject, combineLatest, Subject, merge, scan } from 'rxjs';
+import { Observable, catchError, tap, throwError, map, BehaviorSubject, combineLatest, Subject, merge, scan, shareReplay } from 'rxjs';
 import { ICelebrity, IMovie, Movie } from './Movie.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
@@ -26,11 +26,13 @@ export class MovieDataService {
         }
         ) as IMovie
       )),
+      shareReplay(1),
       catchError(this.handleError)
     )
   celebrity$ = this._http.get<ICelebrity[]>(this.celebrityURL)
     .pipe(
       // tap(c => console.log(`Data from celebrity API:`, JSON.stringify(c))),
+      shareReplay(1),
       catchError(this.handleError));
 
 
@@ -64,7 +66,9 @@ export class MovieDataService {
 
 
   getMovies(): Observable<Movie[]> {
-    return this._http.get<Movie[]>(this.baseURL).pipe(tap(data => console.log('All Movie Data:', JSON.stringify(data))),
+    return this._http.get<Movie[]>(this.baseURL).pipe(
+      shareReplay(1),
+      tap(data => console.log('All Movie Data:', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
