@@ -1,0 +1,60 @@
+/* Font family for better readability and consistency */
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Titles with clear hierarchy and visual emphasis */
+.title {
+    text-align: center;
+    margin-bottom: 1rem;
+    /* Adjusted for better spacing */
+    font-weight: 600;
+    /* Increased visual weight */
+}
+
+h2 {
+    font-size: 1.5rem;
+    /* Ensure sufficient heading size */
+}
+
+/* Container with balanced proportions and centered content */
+.courses-panel {
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 1rem;
+    /* Added for content spacing */
+    border-radius: 5px;
+    /* Soft visual edges */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+/* Flex layout for counters with improved spacing */
+.counters {
+    display: flex;
+    gap: 1rem;
+    /* Consistent spacing between counters */
+    align-items: center;
+    /* Vertical alignment for visual harmony */
+}
+
+.filler {
+    flex: 1 1 auto;
+}
+
+/* Header with focused content and vertical alignment */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Full-height header for visual impact */
+}
+
+/* Spinner container for visual clarity and balance */
+.spinner-container {
+    margin-top: 2rem;
+    /* Adjusted for appropriate spacing */
+    text-align: center;
+    /* Center the spinner */
+}
