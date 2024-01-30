@@ -49,6 +49,12 @@ export class TProductClass {
     }
 }
 
+export interface ProductCategory {
+    id: number;
+    name: string;
+    description?: string;
+  }  
+
 export interface ProductWithSupplier {
     id: number;
     productName: string;
