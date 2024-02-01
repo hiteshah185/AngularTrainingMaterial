@@ -8,20 +8,21 @@ import { LoginDetails } from '../model/person-data.model';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  userCredential:{
-    username:string,
-    password:string
-  } 
-  = { username:'',password:'' };
+  userCredential: {
+    username: string,
+    password: string
+  }
+    = { username: '', password: '' };
   constructor(
-    private _loginService:LoginService
-    ){}
-  login(){
-    const currentUser:LoginDetails={
+    private _loginService: LoginService
+  ) { }
+  login() {
+    const currentUser: LoginDetails = {
       username: this.userCredential.username,
       password: this.userCredential.password
     }
     this._loginService.login(currentUser);
+    this._loginService.setUserLogTime(Date.now());
   }
 
 }

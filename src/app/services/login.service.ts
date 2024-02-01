@@ -10,11 +10,19 @@ import { LoginDetails } from '../model/person-data.model';
 export class LoginService {
   urlToRedirectTo!: string | null;
   currentUserSig = signal<UserInterface | undefined | null>(undefined);
+  private userLoggedTime!: number;
+  private clearTimeOut: any;
   constructor(
     private _router: Router,
     private _serverGuildService: ServerGuildService
-  ) { }
+  ) {
+    const expireTime = this.userLoggedTime * 1000 * 60 * 60 * 24;
+    this.autoLogOut(expireTime);
+  }
 
+  setUserLogTime(value: number) {
+    this.userLoggedTime = value;
+  }
   setUrlAfterLogin(url: string) {
     this.urlToRedirectTo = url;
   }
@@ -29,5 +37,17 @@ export class LoginService {
           this.urlToRedirectTo = null;
         }
       })
+  }
+  logOut() {
+    if (localStorage.getItem("userToken")?.length != 0) {
+      localStorage.removeItem("userToken");
+      this._router.navigateByUrl('/login');
+    }
+  }
+  autoLogOut(expirationPeriod: number) {
+    this.clearTimeOut = setTimeout(() => {
+      this.logOut();
+    }, expirationPeriod);
+
   }
 }

@@ -4,7 +4,7 @@ import { ServerGuildService } from "../server-guild.service";
 import { Observable,of,delay ,tap} from 'rxjs';
 
 @Injectable()
-export class PermissionsService{
+export class PermissionsService implements CanActivate{
     constructor(private _serverGuild:ServerGuildService){}
     canActivate(
         route: ActivatedRouteSnapshot,
@@ -17,9 +17,9 @@ export class PermissionsService{
                 delay(1000)
             )
         }
-        console.log('Sending Permission to login ');
+        console.log('Check if user have permission to view this page.(Authorization)');
         return this._serverGuild.authorize().pipe(tap(()=>{
-            console.log('Permission from Login')
+            console.log('Permission Check - Success')
             localStorage.setItem('isAllowed','true')}));  
     
     }

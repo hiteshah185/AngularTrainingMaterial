@@ -4,19 +4,19 @@ import { LoginService } from '../login.service';
 
 
 @Injectable()
-export class IdentityGuardService implements CanActivate{
-  constructor(private _router:Router,
-    private _loginService: LoginService){}
+export class IdentityGuardService implements CanActivate {
+  constructor(private _router: Router,
+    private _loginService: LoginService) { }
 
-  canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot):boolean{
-   const usersToken = localStorage.getItem('userToken') 
-   if(usersToken){
-    return true;
-   }
-   console.log('Sending User to login Page')
-   this._loginService.setUrlAfterLogin(state.url);
-   this._router.navigate(['/login']);
-   return false;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    const usersToken = localStorage.getItem('userToken')
+    if (usersToken) {
+      return true;
+    }
+    console.log('User is not valid - Visitor navigated to Login Page')
+    this._loginService.setUrlAfterLogin(state.url);
+    this._router.navigate(['/login']);
+    return false;
   }
 
 
