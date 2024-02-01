@@ -2,6 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { Movie } from "../Movie.model";
 import {
     addMovies,
+    customIncrement,
     decrementCounter,
     getMovies,
     incrementCounter,
@@ -54,5 +55,6 @@ export const counterReducer = createReducer(
     initialCounterState,
     on(incrementCounter, (state) => state + 1),
     on(decrementCounter, (state) => state - 1),
-    on(resetCounter, (state) => state * 0)
-);
+    on(resetCounter, (state) => state * 0),
+    // on(customIncrement, (state) => (state * 1.5))
+)

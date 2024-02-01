@@ -1,4 +1,4 @@
-import { createSelector } from "@ngrx/store";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { MovieState } from "../Reducers/movie.reducers";
 import { Movie } from "../Movie.model";
 
@@ -13,9 +13,11 @@ export const movieUserSelector = createSelector(
     (movies: ReadonlyArray<Movie>, user: Readonly<string>) => {
         return movies.filter((movie: Movie) => movie.userName === user)
     })
-    
+
 export const greater = (amount: number) => {
     createSelector(movieSelector, (movies) => {
         return movies.filter((movie: Movie) => movie.earning >= amount);
     });
 }
+const getCounterState = createFeatureSelector<{ value: number }>('value');
+export const getCounter = createSelector(getCounterState, state => { return state.value; });
