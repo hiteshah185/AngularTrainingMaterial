@@ -171,10 +171,10 @@ export const routes: Routes = [
     path: 'register',
     component: RegistrationPageComponent
   },
-  {
-    path: 'authLogin',
-    component: LoginPageComponent
-  },
+  // {
+  //   path: 'authLogin',
+  //   component: LoginPageComponent
+  // },
   {
     path: "login",
     component: LoginComponent

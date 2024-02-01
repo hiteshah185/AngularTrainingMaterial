@@ -1,12 +1,23 @@
-<div>Current Count:{{ count$ | async }}</div>
-<button id="increment" (click)="onIncrement()" class="btn btn-primary">
-  Increment
-</button>
-&nbsp;
-<button id="decrement" (click)="onDecrement()" class="btn btn-warning">
-  Decrement
-</button>
-&nbsp;
-<button id="reset" (click)="onReset()" class="btn btn-info">
-  Reset Counter
-</button>
+<div class="row">
+  <div class="col-md-11">
+    <div class="my-3">
+      <div>Current Count:{{ count$ | async }}</div>
+    </div>
+    <div class="my-3">
+      <button id="increment" (click)="onIncrement()" class="btn btn-primary">
+        Increment
+      </button>
+      &nbsp;
+      <button id="decrement" (click)="onDecrement()" class="btn btn-warning">
+        Decrement
+      </button>
+      &nbsp;
+      <button id="reset" (click)="onReset()" class="btn btn-info">
+        Reset Counter
+      </button>
+    </div>
+    <div class="my-3">
+      <!-- Custom Input -->
+    </div>
+  </div>
+</div>

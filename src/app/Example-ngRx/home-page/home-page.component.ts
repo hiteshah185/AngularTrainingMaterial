@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../Movie.model';
 import { Store } from '@ngrx/store';
-import { addMovies, decrementCounter, getMovies, incrementCounter, resetCounter } from '../Actions/movie.action';
 import { Observable } from 'rxjs';
-import { MovieDataService } from '../movie-data.service';
+import { incrementCounter, decrementCounter, resetCounter } from './Counter-Store/counter.action';
 
 @Component({
   selector: 'app-home-page',

@@ -33,7 +33,6 @@ import { SearchItemComponent } from './Dynamic-Search/search-item/search-item.co
 import { CustomErrorHandlerService } from './services/custom-error-handler.service';
 import { HomePageComponent } from './Example-ngRx/home-page/home-page.component';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer, movieReducer } from './Example-ngRx/Reducers/movie.reducers';
 import { MovieListComponent } from './Example-ngRx/movie-list/movie-list.component';
 import { LoginPageComponent } from './Authorization-Authentication-Login/login-page/login-page.component';
 import { MaterialModule } from './material.module';
@@ -51,6 +50,7 @@ import { MovieChartListComponent } from './RxJs/Asynchs/movie-chart-list/movie-c
 import { CelebrityCollectionComponent } from './RxJs/Asynchs/celebrity-collection/celebrity-collection.component';
 import { CelebrityListComponent } from './RxJs/Asynchs/celebrity-list/celebrity-list.component';
 import { CelebrityDetailComponent } from './RxJs/Asynchs/celebrity-detail/celebrity-detail.component';
+import { counterReducer } from './Example-ngRx/home-page/Counter-Store/counter.reducers';
 
 @NgModule({
   declarations: [
