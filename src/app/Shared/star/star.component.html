@@ -1,0 +1,16 @@
+<div
+  class="crop"
+  [style.width.px]="starWidth"
+  [title]="rating"
+  (click)="onRate($event.offsetX)"
+>
+  <div class="stars-container">
+    <span
+      *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+      [class]="{ active: i < rating }"
+      (click)="onStarClick(i + 1)"
+    >
+      <i class="fa fa-star"></i>
+    </span>
+  </div>
+</div>
