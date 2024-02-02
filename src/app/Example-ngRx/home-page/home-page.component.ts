@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { incrementCounter, decrementCounter, resetCounter } from './Counter-Store/counter.action';
+import { incrementCounter, decrementCounter, resetCounter, customIncrement, changeCounterType } from './Counter-Store/counter.action';
 
 @Component({
   selector: 'app-home-page',
@@ -10,6 +10,7 @@ import { incrementCounter, decrementCounter, resetCounter } from './Counter-Stor
 })
 export class HomePageComponent implements OnInit {
   count$!: Observable<number>;
+  customIncrementValue!: number;
   constructor(private _store: Store<{ count: number }>) {
     this.count$ = _store.select('count');
   }
@@ -25,6 +26,11 @@ export class HomePageComponent implements OnInit {
   onReset() {
     this._store.dispatch(resetCounter());
   }
-
+  onCustomIncrement() {
+    if (!isNaN(this.customIncrementValue) && Boolean(this.customIncrementValue)) {
+      this._store.dispatch(customIncrement({ value: +this.customIncrementValue }));
+    }
+    this._store.dispatch(changeCounterType({ tag: 'Up' }));
+  }
 
 }

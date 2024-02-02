@@ -15,6 +15,24 @@
       <button id="reset" (click)="onReset()" class="btn btn-info">
         Reset Counter
       </button>
+      &nbsp;
+      <div>
+        <br />
+        <input
+          type="number"
+          [(ngModel)]="customIncrementValue"
+          placeholder="Enter count"
+          class="form-control"
+        />
+        &nbsp; <br />
+        <button
+          (click)="onCustomIncrement()"
+          id="customIncrement"
+          class="btn btn-success"
+        >
+          Custom Increment
+        </button>
+      </div>
     </div>
     <div class="my-3">
       <!-- Custom Input -->
