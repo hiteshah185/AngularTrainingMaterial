@@ -137,7 +137,8 @@ export const routes: Routes = [
   },
   {
     path: 'ngRxHomePage',
-    component: HomePageComponent
+    component: HomePageComponent,
+    title: `Counter`
   },
   {
     path: 'ngRxEmployee',
