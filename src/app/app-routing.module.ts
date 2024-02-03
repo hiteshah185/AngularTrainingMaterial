@@ -21,10 +21,7 @@ import { CustomServiceWorkingComponent } from './Dependency-Injection/custom-ser
 import { ServiceConsumerComponent } from './Dependency-Injection/service-consumer/service-consumer.component';
 import { SearchDirectoryComponent } from './Dynamic-Search/search-directory/search-directory.component';
 import { RegistrationPageComponent } from './Authorization-Authentication-Login/registration-page/registration-page.component';
-import { LoginPageComponent } from './Authorization-Authentication-Login/login-page/login-page.component';
 import { LandingPageComponent } from './Authorization-Authentication-Login/landing-page/landing-page.component';
-import { HomePageComponent } from './Example-ngRx/home-page/home-page.component';
-import { TodoComponent } from './Example-Signal/todo/todo.component';
 import { SampleStudentFormComponent } from './form-advanced-04-with-unit-tests/sample-student-form/sample-student-form.component';
 import { UploaderComponent } from './File-Upload/uploader/uploader.component';
 import { TestFormComponent } from './form-advanced-05-with-custom-error/test-form/test-form.component';
@@ -35,6 +32,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { fakeProductGuard } from './Full-Stack-Site/fake-product.guard';
 import { MovieChartListComponent } from './RxJs/Asynchs/movie-chart-list/movie-chart-list.component';
 import { CelebrityCollectionComponent } from './RxJs/Asynchs/celebrity-collection/celebrity-collection.component';
+import { CounterModule } from './Example-ngRx/home-page/counter.module';
 
 
 
@@ -137,8 +135,7 @@ export const routes: Routes = [
   },
   {
     path: 'ngRxHomePage',
-    component: HomePageComponent,
-    title: `Counter`
+    loadChildren: () => import('./Example-ngRx/home-page/counter.module').then(mod => mod.CounterModule)
   },
   {
     path: 'ngRxEmployee',
