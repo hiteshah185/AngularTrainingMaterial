@@ -31,7 +31,6 @@ import { SearchItemPipe } from './Custom-Pipes/array/search-item.pipe';
 import { SearchDirectoryComponent } from './Dynamic-Search/search-directory/search-directory.component';
 import { SearchItemComponent } from './Dynamic-Search/search-item/search-item.component';
 import { CustomErrorHandlerService } from './services/custom-error-handler.service';
-import { HomePageComponent } from './Example-ngRx/home-page/home-page.component';
 import { StoreModule } from '@ngrx/store';
 import { MovieListComponent } from './Example-ngRx/movie-list/movie-list.component';
 import { LoginPageComponent } from './Authorization-Authentication-Login/login-page/login-page.component';
@@ -50,7 +49,7 @@ import { MovieChartListComponent } from './RxJs/Asynchs/movie-chart-list/movie-c
 import { CelebrityCollectionComponent } from './RxJs/Asynchs/celebrity-collection/celebrity-collection.component';
 import { CelebrityListComponent } from './RxJs/Asynchs/celebrity-list/celebrity-list.component';
 import { CelebrityDetailComponent } from './RxJs/Asynchs/celebrity-detail/celebrity-detail.component';
-import { counterReducer } from './Example-ngRx/home-page/Counter-Store/counter.reducers';
+import { counterReducer, newCounterReducer } from './Example-ngRx/home-page/Counter-Store/counter.reducers';
 
 @NgModule({
   declarations: [
@@ -68,7 +67,6 @@ import { counterReducer } from './Example-ngRx/home-page/Counter-Store/counter.r
     SearchItemPipe,
     SearchDirectoryComponent,
     SearchItemComponent,
-    HomePageComponent,
     MovieListComponent,
     SpinnerComponent,
     TestFormComponent,
@@ -89,7 +87,7 @@ import { counterReducer } from './Example-ngRx/home-page/Counter-Store/counter.r
     FullStackSiteModule,
     ReactiveFormsModule,
     PersonDataAdvancedComponent,
-    StoreModule.forRoot({ count: counterReducer }),
+    // StoreModule.forRoot({ count: counterReducer }),
     MaterialModule,
     SharedModule
   ],

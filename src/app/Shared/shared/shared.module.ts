@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { TimerComponent } from 'src/app/RxJs/Utility/timer/timer.component';
 import { CanvasComponent } from 'src/app/RxJs/Graphics/canvas/canvas.component';
@@ -9,7 +10,8 @@ import { SelectAllDirective } from 'src/app/Custom-Directives/select-all.directi
 
 const commonModules = [
   FormsModule,
-  CommonModule
+  ReactiveFormsModule,
+  CommonModule,
 ]
 const commonComponent = [TimerComponent,
   CanvasComponent]
