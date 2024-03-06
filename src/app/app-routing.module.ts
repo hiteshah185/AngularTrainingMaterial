@@ -161,6 +161,11 @@ export const routes: Routes = [
     title: 'Explore Celebrity'
   },
   {
+    path: 'particles',
+    component: BackgroundCanvasComponent,
+    title: 'Particle Background'
+  },
+  {
     path: 'todo',
     title: 'To-Do',
     loadComponent: () => import('./Example-Signal/todo/todo.component').then((it => it.TodoComponent))
