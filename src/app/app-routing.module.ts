@@ -33,6 +33,7 @@ import { fakeProductGuard } from './Full-Stack-Site/fake-product.guard';
 import { MovieChartListComponent } from './RxJs/Asynchs/movie-chart-list/movie-chart-list.component';
 import { CelebrityCollectionComponent } from './RxJs/Asynchs/celebrity-collection/celebrity-collection.component';
 import { CounterModule } from './Example-ngRx/home-page/counter.module';
+import { BackgroundCanvasComponent } from './Particles/background-canvas/background-canvas.component';
 
 
 
@@ -159,6 +160,11 @@ export const routes: Routes = [
     path: 'celebrity',
     component: CelebrityCollectionComponent,
     title: 'Explore Celebrity'
+  },
+  {
+    path: 'particles',
+    component: BackgroundCanvasComponent,
+    title: 'Particle Background'
   },
   {
     path: 'todo',
