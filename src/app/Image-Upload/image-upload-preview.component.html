@@ -1,0 +1,7 @@
+<div class="container">
+    <input type="file" value="Upload an image" (change)="loadImage($event)">
+    <canvas #imagePreview></canvas>
+</div>
+<div>
+    <button (click)="applyFilter()">Apply a filter</button>
+</div>
